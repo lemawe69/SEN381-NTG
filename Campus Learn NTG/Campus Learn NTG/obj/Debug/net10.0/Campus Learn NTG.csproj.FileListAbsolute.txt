@@ -1,0 +1,96 @@
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\appsettings.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Campus_Learn_NTG.staticwebassets.runtime.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Campus_Learn_NTG.staticwebassets.endpoints.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Campus_Learn_NTG.exe
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Campus_Learn_NTG.deps.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Campus_Learn_NTG.runtimeconfig.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Campus_Learn_NTG.dll
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Campus_Learn_NTG.pdb
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\EmbeddedAttribute.cs
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\ValidatableTypeAttribute.cs
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\Campus Learn NTG.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\Campus Learn NTG.AssemblyInfoInputs.cache
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\Campus Learn NTG.AssemblyInfo.cs
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\Campus Learn NTG.csproj.CoreCompileInputs.cache
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\Campus_Learn_NTG.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\Campus Learn NTG.sourcelink.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\scopedcss\Components\Layout\ReconnectModal.razor.rz.scp.css
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\scopedcss\bundle\Campus_Learn_NTG.styles.css
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\scopedcss\projectbundle\Campus_Learn_NTG.bundle.scp.css
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\cmp1bd0wmd-{0}-bqjiyaj88i-bqjiyaj88i.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\c75tqa6z22-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\xu32y0f6bc-{0}-erw9l3u2r3-erw9l3u2r3.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\r7my21pl87-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\qfq57po7ga-{0}-d7shbmvgxk-d7shbmvgxk.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\b5x5bxlxuc-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\nze6u3724f-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\k7hdl2ki16-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\jxnd3yid67-{0}-ub07r2b239-ub07r2b239.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\vpe23cyuxt-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\9jwsc9sy63-{0}-b7pk76d08c-b7pk76d08c.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\p1s1e0o9zy-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\jxvqbqxn0n-{0}-rzd6atqjts-rzd6atqjts.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\ygrb59ive4-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\7zj8oo8r46-{0}-dxx9fxp4il-dxx9fxp4il.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\4x4nimctr5-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\5rkhegq3ug-{0}-khv3u5hwcm-khv3u5hwcm.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\dwfgsh89k3-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\4roousn7d7-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\64ia41vin7-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\d2n27eezdx-{0}-tdbxkamptv-tdbxkamptv.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\fkukgrrnw2-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\9w0xtzqnfe-{0}-06098lyss8-06098lyss8.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\0q5ntffdng-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\5kvymgbw94-{0}-s35ty4nyc5-s35ty4nyc5.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\er9sf6uzd6-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\bz1ffkju2v-{0}-46ein0sx1k-46ein0sx1k.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\54ep5rboys-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\3p68ap7ydn-{0}-37tfw0ft22-37tfw0ft22.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\8i1105bj3l-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\fsx0mbvcv9-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\makwuhwwea-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\ixt2qfh85f-{0}-6cfz1n2cew-6cfz1n2cew.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\nuwpfc137p-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\5xgvt8ybjl-{0}-493y06b0oq-493y06b0oq.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\076i8h2xfz-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\0imgs8rgs5-{0}-vr1egmr9el-vr1egmr9el.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\3dwiuriu3e-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\qxu0sg26fh-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\fiu4anrphd-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\tga8syiymm-{0}-notf2xhcfb-notf2xhcfb.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\vzfrkfa9nb-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\ztn1v7ozq3-{0}-63fj8s7r0e-63fj8s7r0e.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\ib7mzob9ls-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\z7ojpctoav-{0}-13ja33weya-13ja33weya.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\ef7r5hzxp3-{0}-4n3g7fqvoz-4n3g7fqvoz.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\v47rbwzukr-{0}-v6ptob665s-v6ptob665s.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\Campus_Learn_NTG.dll
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\refint\Campus_Learn_NTG.dll
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\Campus_Learn_NTG.pdb
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\Campus Learn NTG.genruntimeconfig.cache
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\ref\Campus_Learn_NTG.dll
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\wkg7ep38xk-{0}-4lyv7xisjl-4lyv7xisjl.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\scopedcss\Components\Layout\SiteRaw.razor.rz.scp.css
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Npgsql.dll
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\Campus Learn NTG.csproj.AssemblyReference.cache
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\Campus L.339F99D7.Up2Date
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\scopedcss\Components\Pages\ChatBot.razor.rz.scp.css
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\x8y58k7xct-{0}-j6j1ql3z8n-j6j1ql3z8n.gz
+C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\Campus Learn NTG\Campus Learn NTG\obj\Debug\net10.0\compressed\ev1p91lkzy-{0}-j6j1ql3z8n-j6j1ql3z8n.gz

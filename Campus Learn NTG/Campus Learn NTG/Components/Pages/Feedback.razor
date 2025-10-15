@@ -1,0 +1,69 @@
+﻿@page "/feedback"
+
+<div class="feedback-container" style="display: flex; min-height: 100vh; background: #fafbfc;">
+    <!-- Sidebar -->
+    <aside class="feedback-sidebar" style="width: 200px; background: #fff; border-right: 1px solid #e5e7eb; padding: 2rem 1rem;">
+        <nav>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 1.2rem;"><span class="bi bi-house-door"></span> Dashboard</li>
+                <li style="margin-bottom: 1.2rem;"><span class="bi bi-journal-text"></span> Courses</li>
+                <li style="margin-bottom: 1.2rem; font-weight: bold; color: #2d7ff9;"><span class="bi bi-chat-dots"></span> Feedback</li>
+                <li style="margin-bottom: 1.2rem;"><span class="bi bi-person"></span> Profile</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="feedback-main" style="flex: 1; padding: 2rem;">
+        <!-- Top Bar -->
+        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 1.5rem;">
+            <button class="btn btn-outline-danger" style="margin-right: 1rem;">Logout</button>
+            <span class="bi bi-person-circle" style="font-size: 1.7rem; color: #2d7ff9;"></span>
+        </div>
+
+        <h2 style="color: #2d7ff9; margin-bottom: 2rem;">Feedback</h2>
+
+        <!-- Feedback Card -->
+        <section style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 2rem; max-width: 600px; margin: auto;">
+            <h4 style="font-weight: bold; margin-bottom: 1rem;">Submit Your Feedback</h4>
+            <p style="color: #888; font-size: 0.95rem; margin-bottom: 2rem;">
+                We value your opinion! Please share your thoughts and suggestions to help us improve CampusLearn. Your insights are crucial for creating a better learning experience for everyone.
+            </p>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="font-weight: 500;">Feedback Category / Course</label>
+                <select class="form-control" style="margin-top: 0.5rem;">
+                    <option>General Feedback</option>
+                    <option>Course Content</option>
+                    <option>Platform Usability</option>
+                    <option>Support</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="font-weight: 500;">Your Feedback Message</label>
+                <textarea class="form-control" style="margin-top: 0.5rem; min-height: 70px;">The platform is intuitive and easy to navigate. I appreciate the clear structure of the course materials. Perhaps adding a dark mode would be a nice feature!</textarea>
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="font-weight: 500;">Overall Satisfaction</label>
+                <input type="range" min="1" max="5" value="4" class="form-range" style="width: 100%;" />
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <input type="checkbox" id="anonymous" style="margin-right: 0.5rem;" />
+                <label for="anonymous" style="font-size: 0.95rem;">Submit anonymously</label>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Submit Feedback</button>
+        </section>
+
+        <!-- Footer -->
+        <footer style="margin-top: 3rem; text-align: center; color: #888; font-size: 0.95rem;">
+            <div style="margin-bottom: 0.5rem;">
+                Quick Links &nbsp; | &nbsp; Support &nbsp; | &nbsp; Legal
+            </div>
+            <div>
+                <span class="bi bi-facebook" style="margin-right: 0.5rem;"></span>
+                <span class="bi bi-twitter" style="margin-right: 0.5rem;"></span>
+                <span class="bi bi-instagram" style="margin-right: 0.5rem;"></span>
+                <span class="bi bi-linkedin"></span>
+            </div>
+        </footer>
+    </main>
+</div>

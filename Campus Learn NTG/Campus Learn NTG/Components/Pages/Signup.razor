@@ -1,0 +1,47 @@
+﻿@page "/Signup"
+
+<div class="welcome-section" style="text-align:center; margin-bottom:2rem;">
+    <h1>Welcome to CampusLearn</h1>
+    <p>We're glad to have you here! Join CampusLearn as a student or a tutor to start your learning journey.</p>
+</div>
+
+<div class="d-flex justify-content-center align-items-center" style="min-height:100vh; background: #f5f6fa;">
+    <div class="card shadow" style="width: 400px; border-radius: 16px;">
+        <div class="card-body">
+            <h3 class="text-center mb-2">Create Your Account</h3>
+            <p class="text-center text-muted mb-4" style="font-size: 0.95rem;">
+                Join CampusLearn as a student or a tutor to start your learning journey.
+            </p>
+            <div class="d-flex mb-4">
+                <button class="btn btn-primary flex-fill me-2" id="studentTab" type="button">Student Sign-Up</button>
+                <button class="btn btn-light flex-fill" id="tutorTab" type="button">Tutor Sign-Up</button>
+            </div>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" placeholder="John Doe" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="john.doe@example.com" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="Enter your password" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" placeholder="Confirm your password" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Student ID (Optional)</label>
+                    <input type="text" class="form-control" placeholder="E.g. CL12345" />
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mb-2">Sign Up as Student</button>
+            </form>
+            <div class="text-center mt-2" style="font-size: 0.95rem;">
+                Already have an account? <a href="/login">Login</a>
+            </div>
+        </div>
+    </div>
+</div>

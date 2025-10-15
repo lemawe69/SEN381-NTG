@@ -1,0 +1,135 @@
+﻿@page "/courses"
+
+<div class="courses-container" style="display: flex; min-height: 100vh; background: #fafbfc;">
+    <!-- Sidebar -->
+    <aside class="courses-sidebar" style="width: 200px; background: #fff; border-right: 1px solid #e5e7eb; padding: 2rem 1rem;">
+        <nav>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 1.2rem;"><span class="bi bi-house-door"></span> Dashboard</li>
+                <li style="margin-bottom: 1.2rem; font-weight: bold; color: #2d7ff9;"><span class="bi bi-journal-text"></span> Courses</li>
+                <li style="margin-bottom: 1.2rem;"><span class="bi bi-chat-dots"></span> Feedback</li>
+                <li style="margin-bottom: 1.2rem;"><span class="bi bi-person"></span> Profile</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="courses-main" style="flex: 1; padding: 2rem;">
+        <!-- Top Bar -->
+        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 1.5rem;">
+            <button class="btn btn-outline-danger" style="margin-right: 1rem;">Logout</button>
+            <span class="bi bi-person-circle" style="font-size: 1.7rem; color: #2d7ff9;"></span>
+        </div>
+
+        <h2 style="font-weight: bold; margin-bottom: 2rem;">Available Courses</h2>
+
+        <!-- Search and Filter -->
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+            <input type="text" placeholder="Search courses..." style="flex: 1; padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid #e5e7eb;" />
+            <select style="padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid #e5e7eb; min-width: 180px;">
+                <option>All Students</option>
+                <option>Registered</option>
+                <option>Unregistered</option>
+            </select>
+        </div>
+
+        <!-- Courses Grid -->
+        <div class="courses-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
+            <!-- Course Card Example -->
+            <div class="course-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 1rem; display: flex; flex-direction: column;">
+                <img src="/images/course-compsci.jpg" alt="Introduction to Computer Science" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;" />
+                <div style="font-weight: bold;">Introduction to Computer Science</div>
+                <div style="color: #888; font-size: 0.95rem;">A foundational course covering algorithms, data structures, and programming basics.</div>
+                <div style="margin-top: auto; display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline-primary btn-sm">View Details</button>
+                    <button class="btn btn-primary btn-sm">Register</button>
+                </div>
+            </div>
+            <div class="course-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 1rem; display: flex; flex-direction: column;">
+                <img src="/images/course-calculus.jpg" alt="Advanced Calculus" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;" />
+                <div style="font-weight: bold;">Advanced Calculus</div>
+                <div style="color: #888; font-size: 0.95rem;">Dive into limits, series, and multivariable calculus with real-world applications.</div>
+                <div style="margin-top: auto; display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline-primary btn-sm">View Details</button>
+                    <button class="btn btn-primary btn-sm">Register</button>
+                </div>
+            </div>
+            <div class="course-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 1rem; display: flex; flex-direction: column;">
+                <img src="/images/course-graphicdesign.jpg" alt="Graphic Design Fundamentals" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;" />
+                <div style="font-weight: bold;">Graphic Design Fundamentals</div>
+                <div style="color: #888; font-size: 0.95rem;">Learn the principles of design, color theory, and digital illustration tools.</div>
+                <div style="margin-top: auto; display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline-primary btn-sm">View Details</button>
+                    <button class="btn btn-primary btn-sm">Enroll</button>
+                </div>
+            </div>
+            <div class="course-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 1rem; display: flex; flex-direction: column;">
+                <img src="/images/course-business.jpg" alt="Business Strategy & Management" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;" />
+                <div style="font-weight: bold;">Business Strategy & Management</div>
+                <div style="color: #888; font-size: 0.95rem;">Fundamentals of strategic planning, leadership, and organizational management.</div>
+                <div style="margin-top: auto; display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline-primary btn-sm">View Details</button>
+                    <button class="btn btn-primary btn-sm">Enroll</button>
+                </div>
+            </div>
+            <div class="course-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 1rem; display: flex; flex-direction: column;">
+                <img src="/images/course-history.jpg" alt="World History: Ancient Civilizations" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;" />
+                <div style="font-weight: bold;">World History: Ancient Civilizations</div>
+                <div style="color: #888; font-size: 0.95rem;">Explore the rise and fall of ancient societies and their impact on the modern world.</div>
+                <div style="margin-top: auto; display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline-primary btn-sm">View Details</button>
+                    <button class="btn btn-primary btn-sm">Enroll</button>
+                </div>
+            </div>
+            <div class="course-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 1rem; display: flex; flex-direction: column;">
+                <img src="/images/course-spanish.jpg" alt="Introduction to Spanish Language" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;" />
+                <div style="font-weight: bold;">Introduction to Spanish Language</div>
+                <div style="color: #888; font-size: 0.95rem;">Learn vocabulary, grammar, and conversational skills for beginners.</div>
+                <div style="margin-top: auto; display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline-primary btn-sm">View Details</button>
+                    <button class="btn btn-primary btn-sm">Register</button>
+                </div>
+            </div>
+            <div class="course-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 1rem; display: flex; flex-direction: column;">
+                <img src="/images/course-philosophy.jpg" alt="Foundations of Philosophy" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;" />
+                <div style="font-weight: bold;">Foundations of Philosophy</div>
+                <div style="color: #888; font-size: 0.95rem;">Examine key philosophical concepts, thinkers, and ethical frameworks.</div>
+                <div style="margin-top: auto; display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline-primary btn-sm">View Details</button>
+                    <button class="btn btn-primary btn-sm">Enroll</button>
+                </div>
+            </div>
+            <div class="course-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 1rem; display: flex; flex-direction: column;">
+                <img src="/images/course-chemistry.jpg" alt="Organic Chemistry II" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;" />
+                <div style="font-weight: bold;">Organic Chemistry II</div>
+                <div style="color: #888; font-size: 0.95rem;">Advanced study in organic reactions, mechanisms, and synthesis.</div>
+                <div style="margin-top: auto; display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline-primary btn-sm">View Details</button>
+                    <button class="btn btn-primary btn-sm">Enroll</button>
+                </div>
+            </div>
+            <div class="course-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 1rem; display: flex; flex-direction: column;">
+                <img src="/images/course-art.jpg" alt="Art Appreciation" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;" />
+                <div style="font-weight: bold;">Art Appreciation</div>
+                <div style="color: #888; font-size: 0.95rem;">Explore world art, techniques, and history from ancient to modern times.</div>
+                <div style="margin-top: auto; display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline-primary btn-sm">View Details</button>
+                    <button class="btn btn-primary btn-sm">Register</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer style="margin-top: 3rem; text-align: center; color: #888; font-size: 0.95rem;">
+            <div style="margin-bottom: 0.5rem;">
+                Quick Links &nbsp; | &nbsp; Support &nbsp; | &nbsp; Legal
+            </div>
+            <div>
+                <span class="bi bi-facebook" style="margin-right: 0.5rem;"></span>
+                <span class="bi bi-twitter" style="margin-right: 0.5rem;"></span>
+                <span class="bi bi-instagram" style="margin-right: 0.5rem;"></span>
+                <span class="bi bi-linkedin"></span>
+            </div>
+        </footer>
+    </main>
+</div>

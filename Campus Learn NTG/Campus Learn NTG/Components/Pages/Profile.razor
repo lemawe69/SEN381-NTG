@@ -1,0 +1,121 @@
+﻿@page "/profile"
+
+<div class="profile-container" style="display: flex; min-height: 100vh; background: #fafbfc;">
+    <!-- Sidebar -->
+    <aside class="profile-sidebar" style="width: 200px; background: #fff; border-right: 1px solid #e5e7eb; padding: 2rem 1rem;">
+        <nav>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 1.2rem;"><span class="bi bi-house-door"></span> Dashboard</li>
+                <li style="margin-bottom: 1.2rem;"><span class="bi bi-journal-text"></span> Courses</li>
+                <li style="margin-bottom: 1.2rem;"><span class="bi bi-chat-dots"></span> Feedback</li>
+                <li style="margin-bottom: 1.2rem; font-weight: bold; color: #2d7ff9;"><span class="bi bi-person"></span> Profile</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="profile-main" style="flex: 1; padding: 2rem;">
+        <!-- Top Bar -->
+        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 1.5rem;">
+            <button class="btn btn-outline-danger" style="margin-right: 1rem;">Logout</button>
+            <span class="bi bi-person-circle" style="font-size: 1.7rem; color: #2d7ff9;"></span>
+        </div>
+
+        <h2 style="color: #2d7ff9; margin-bottom: 2rem;">User Profile</h2>
+
+        <!-- Profile Card -->
+        <section style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 2rem; max-width: 600px; margin-bottom: 2rem;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 80px; height: 80px; border-radius: 50%; background: #eaf0fe; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: #2d7ff9; margin-bottom: 1rem;">
+                    JD
+                </div>
+                <div style="font-weight: bold; font-size: 1.2rem;">John Doe</div>
+                <div style="font-size: 0.95rem; color: #888;">Student ID: ST-1234-2023</div>
+                <div style="font-size: 0.95rem; color: #888;">Computer Science</div>
+                <button class="btn btn-outline-primary" style="margin-top: 1rem;">Edit Profile</button>
+            </div>
+        </section>
+
+        <!-- Personal Information -->
+        <section style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 2rem; max-width: 900px; margin-bottom: 2rem;">
+            <h5 style="font-weight: bold; margin-bottom: 1rem;">Personal Information</h5>
+            <p style="color: #888; font-size: 0.95rem;">Manage your contact details and basic information.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div>
+                    <label>First Name</label>
+                    <input type="text" class="form-control" value="John" readonly />
+                </div>
+                <div>
+                    <label>Phone Number</label>
+                    <input type="text" class="form-control" value="+27 079 123-4567" readonly />
+                </div>
+                <div>
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" value="Doe" readonly />
+                </div>
+                <div>
+                    <label>Date of Birth</label>
+                    <input type="text" class="form-control" value="2004-07-21" readonly />
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" class="form-control" value="john.doe@campuslearn.ac.za" readonly />
+                </div>
+                <div>
+                    <label>Address</label>
+                    <input type="text" class="form-control" value="123 University Ave, Campus City, ZA 0002" readonly />
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Details -->
+        <section style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 2rem; max-width: 900px; margin-bottom: 2rem;">
+            <h5 style="font-weight: bold; margin-bottom: 1rem;">Academic Details</h5>
+            <p style="color: #888; font-size: 0.95rem;">Overview of your academic progress.</p>
+            <div style="display: flex; gap: 2rem;">
+                <div style="flex: 1;">
+                    <div><strong>Major</strong></div>
+                    <div>Software Engineering</div>
+                    <div style="margin-top: 1rem;"><strong>Year of Study</strong></div>
+                    <div>3rd Year</div>
+                    <div style="margin-top: 1rem;"><strong>Cumulative GPA</strong></div>
+                    <div>3.85</div>
+                </div>
+                <div style="flex: 1;">
+                    <div><strong>Enrolled Courses</strong></div>
+                    <ul style="padding-left: 1rem; margin: 0;">
+                        <li>Advanced Algorithms (CS401)</li>
+                        <li>Database Systems (CS306)</li>
+                        <li>Web Development (CS210)</li>
+                        <li>Artificial Intelligence (CS412)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Settings -->
+        <section style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 2rem; max-width: 900px;">
+            <h5 style="font-weight: bold; margin-bottom: 1rem;">Account Settings</h5>
+            <p style="color: #888; font-size: 0.95rem;">Configure your preferences and security.</p>
+            <button class="btn btn-outline-primary" style="margin-bottom: 1rem;">Change Password</button>
+            <button class="btn btn-link" style="margin-bottom: 1rem;">Receive Email Notifications</button>
+            <div style="margin-top: 1rem;">
+                <label style="margin-right: 1rem;">Make Profile Public</label>
+                <input type="checkbox" />
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="margin-top: 3rem; text-align: center; color: #888; font-size: 0.95rem;">
+            <div style="margin-bottom: 0.5rem;">
+                Quick Links &nbsp; | &nbsp; Support &nbsp; | &nbsp; Legal
+            </div>
+            <div>
+                <span class="bi bi-facebook" style="margin-right: 0.5rem;"></span>
+                <span class="bi bi-twitter" style="margin-right: 0.5rem;"></span>
+                <span class="bi bi-instagram" style="margin-right: 0.5rem;"></span>
+                <span class="bi bi-linkedin"></span>
+            </div>
+        </footer>
+    </main>
+</div>
