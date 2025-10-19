@@ -1,0 +1,47 @@
+﻿@page
+@model CampusLearnNTG.Pages.Shared.NavModel
+@{
+    ViewData["Title"] = "Nav";
+}
+@{
+    var hideSidebar = ViewData["HideSidebar"] as bool? ?? false;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CampusLearnNTG</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/js/chatbot.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        @if (!hideSidebar)
+        {
+            <aside class="sidebar">
+                <h2>CampusLearnNTG</h2>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/Signup">Sign Up</a></li>
+                        <li><a href="/Login">Login</a></li>
+                        <li><a href="/StudentDashboard">Student Dashboard</a></li>
+                        <li><a href="/TutorDashboard">Tutor Dashboard</a></li>
+                        <li><a href="/AdminDashboard">Admin Dashboard</a></li>
+                        <li><a href="/Forum">Public Forum</a></li>
+                        <li><a href="/Profile">Profile</a></li>
+                        <li><a href="/Settings">Settings</a></li>
+                        <li><a href="/Courses">Courses</a></li>
+                        <li><a href="/Feedback">Feedback</a></li>
+                        <li><a href="/Chat">Chat Bot</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        }
+    </div>
+
+    
+</body>
+</html>

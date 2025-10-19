@@ -1,0 +1,384 @@
+﻿@page "/admindashboard"
+@model CampusLearnNTG.Pages.AdminDashboardModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+<!--
+Restfull API Endpoints Examples use this as a gide:
+| HTTP Method | Endpoint        | Action                       |
+| ----------- | --------------- | ---------------------------- |
+| GET         | /api/users      | Retrieve a list of all users |
+| GET         | /api/users/{id} | Retrieve a single user       |
+| POST        | /api/users      | Create a new user            |
+| PUT/PATCH   | /api/users/{id} | Update an existing user      |
+| DELETE      | /api/users/{id} | Delete a user                |
+
+E.g. https://localhost:5432/api/users
+
+Verify with Kian Controller Details.
+-->
+
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+        <h4>Admin Menu</h4>
+        <nav>
+            <ul>
+                <li><span class="bi bi-house-door"></span> Dashboard Home</li>
+                <li><span class="bi bi-people"></span> User Management</li>
+                <li><span class="bi bi-chat-dots"></span> Content Moderation</li>
+                <li><span class="bi bi-bar-chart"></span> Platform Analytics</li>
+                <li><span class="bi bi-gear"></span> Platform Settings</li>
+                <li><span class="bi bi-bell"></span> Notifications</li>
+            </ul>
+        </nav>
+        <button class="btn btn-logout">Logout</button>
+        <div class="sidebar-footer">CampusLearn</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Top Bar -->
+        <div class="dashboard-topbar">
+            <nav>
+                <a href="/">Home</a>
+                <a href="#">User Management</a>
+                <a href="#">Content Moderation</a>
+                <a href="#">Platform Analytics</a>
+                <a href="#">Platform Settings</a>
+            </nav>
+            <button class="btn btn-logout">Logout</button>
+            <span class="bi bi-person-circle profile-icon"></span>
+        </div>
+
+        <h2>Admin Dashboard</h2>
+
+        <!-- User Management Section -->
+        <section class="dashboard-card">
+            <h4>User Management</h4>
+            <p>Manage users and their roles on the platform.</p>
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Sam Smith</td><td>sam@campuslearn.com</td><td>Student</td><td class="active">Active</td><td><a href="#">View</a></td></tr>
+                    <tr><td>Alex Johnson</td><td>alex@campuslearn.com</td><td>Tutor</td><td class="active">Active</td><td><a href="#">View</a></td></tr>
+                    <tr><td>Ben Carter</td><td>ben@campuslearn.com</td><td>Admin</td><td class="active">Active</td><td><a href="#">View</a></td></tr>
+                    <tr><td>Lena Khan</td><td>lena@campuslearn.com</td><td>Student</td><td class="pending">Pending</td><td><a href="#">View</a></td></tr>
+                    <tr><td>Charlie Brown</td><td>charlie@campuslearn.com</td><td>Tutor</td><td class="suspended">Suspended</td><td><a href="#">View</a></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content Moderation Section -->
+        <section class="dashboard-card moderation-section">
+            <div class="moderation-columns">
+                <div class="moderation-column">
+                    <h5>Forum Posts</h5>
+                    <div class="moderation-item">
+                        <div>Quantum Model Calculation</div>
+                        <button class="btn btn-approve">Approve</button>
+                        <button class="btn btn-reject">Reject</button>
+                    </div>
+                    <div class="moderation-item">
+                        <div>Feedback on Session Time</div>
+                        <button class="btn btn-approve">Approve</button>
+                        <button class="btn btn-reject">Reject</button>
+                    </div>
+                </div>
+                <div class="moderation-column">
+                    <h5>Learning Materials</h5>
+                    <div class="moderation-item">
+                        <div>Algebra Basics Lecture Notes</div>
+                        <button class="btn btn-approve">Approve</button>
+                        <button class="btn btn-reject">Reject</button>
+                    </div>
+                    <div class="moderation-item">
+                        <div>Advanced Physics Quiz</div>
+                        <button class="btn btn-approve">Approve</button>
+                        <button class="btn btn-reject">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Analytics Section -->
+        <section class="dashboard-card analytics-section">
+            <h4>Platform Analytics</h4>
+            <div class="analytics-metrics">
+                <div><span>1,234</span><small>Total Users</small></div>
+                <div><span>189</span><small>Active Sessions</small></div>
+                <div><span>58</span><small>Public Forums</small></div>
+                <div><span>12</span><small>Pending Approvals</small></div>
+            </div>
+        </section>
+
+        <!-- Platform Settings Section -->
+        <section class="dashboard-card">
+            <h4>Platform Settings</h4>
+            <form class="settings-form">
+                <label>
+                    Language
+                    <select>
+                        <option>English</option>
+                        <option>French</option>
+                        <option>Dutch</option>
+                    </select>
+                </label>
+                <label>
+                    Admin Contact Email
+                    <input type="email" value="admin@campuslearn.com" />
+                </label>
+                <label>
+                    Enable Email Notifications
+                    <input type="checkbox" checked />
+                </label>
+                <button class="btn btn-save" type="submit">Save Settings</button>
+            </form>
+        </section>
+
+        <!-- Notifications Section -->
+        <section class="dashboard-card">
+            <h4>Notifications</h4>
+            <ul class="notifications-list">
+                <li>New user registered: Lena Khan <small>2 hours ago</small></li>
+                <li>Forum post pending approval <small>3 hours ago</small></li>
+                <li>System update completed <small>5 hours ago</small></li>
+            </ul>
+        </section>
+    </main>
+</div>
+
+<style>
+    /* -------------------- Layout -------------------- */
+    .dashboard-container {
+        display: flex;
+        min-height: 100vh;
+        background: #fafbfc;
+    }
+
+    .dashboard-sidebar {
+        width: 220px;
+        background: #fff;
+        border-right: 1px solid #e5e7eb;
+        padding: 2rem 1rem;
+        position: relative;
+    }
+
+        .dashboard-sidebar h4 {
+            margin-bottom: 2rem;
+            color: #2d7ff9;
+        }
+
+        .dashboard-sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dashboard-sidebar li {
+            margin-bottom: 1.2rem;
+            cursor: pointer;
+        }
+
+    .btn-logout {
+        position: absolute;
+        bottom: 2rem;
+        left: 1rem;
+        width: 80%;
+        background: #f44336;
+        color: white;
+        border: none;
+        padding: 0.5rem;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .sidebar-footer {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 0.95rem;
+        color: #b0b0b0;
+    }
+
+    /* -------------------- Main -------------------- */
+    .dashboard-main {
+        flex: 1;
+        padding: 2rem;
+    }
+
+    .dashboard-topbar {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+        .dashboard-topbar nav a {
+            margin-right: 2rem;
+            text-decoration: none;
+            color: #1f2937;
+        }
+
+    .profile-icon {
+        font-size: 1.7rem;
+        color: #2d7ff9;
+        margin-left: 1rem;
+    }
+
+    .dashboard-main h2 {
+        color: #2d7ff9;
+        margin-bottom: 1rem;
+    }
+
+    /* -------------------- Cards -------------------- */
+    .dashboard-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* User Table */
+    .user-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+    }
+
+        .user-table th, .user-table td {
+            padding: 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .user-table .active {
+            color: #4caf50;
+        }
+
+        .user-table .pending {
+            color: #ff9800;
+        }
+
+        .user-table .suspended {
+            color: #f44336;
+        }
+
+    /* Moderation Section */
+    .moderation-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .moderation-columns {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .moderation-column {
+        flex: 1;
+    }
+
+    .moderation-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 0.4rem 0.8rem;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+    }
+
+    .btn-approve {
+        background: #4caf50;
+        color: white;
+    }
+
+    .btn-reject {
+        background: #f44336;
+        color: white;
+    }
+
+    .btn-save {
+        background: #007ACC;
+        color: white;
+        padding: 0.6rem 1.2rem;
+        margin-top: 1rem;
+    }
+
+    /* Analytics Section */
+    .analytics-metrics {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+
+        .analytics-metrics div {
+            flex: 1;
+            text-align: center;
+        }
+
+        .analytics-metrics span {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .analytics-metrics small {
+            display: block;
+            color: #888;
+        }
+
+    /* Notifications */
+    .notifications-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .notifications-list li {
+            margin-bottom: 0.7rem;
+            color: #2d7ff9;
+        }
+
+        .notifications-list small {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+    /* -------------------- Responsive -------------------- */
+    media (max-width: 768px) {
+        .dashboard-container {
+            flex-direction: column;
+        }
+
+        .dashboard-sidebar {
+            width: 100%;
+            position: relative;
+        }
+
+        .dashboard-topbar nav {
+            margin-bottom: 1rem;
+        }
+
+        .moderation-columns {
+            flex-direction: column;
+        }
+
+        .analytics-metrics {
+            flex-direction: column;
+        }
+    }
+</style>

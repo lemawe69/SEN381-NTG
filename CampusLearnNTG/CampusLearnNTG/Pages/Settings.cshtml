@@ -1,0 +1,127 @@
+﻿@page
+@model CampusLearnNTG.Pages.SettingsModel
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<!--
+Restfull API Endpoints Examples use this as a gide:
+| HTTP Method | Endpoint        | Action                       |
+| ----------- | --------------- | ---------------------------- |
+| GET         | /api/users      | Retrieve a list of all users |
+| GET         | /api/users/{id} | Retrieve a single user       |
+| POST        | /api/users      | Create a new user            |
+| PUT/PATCH   | /api/users/{id} | Update an existing user      |
+| DELETE      | /api/users/{id} | Delete a user                |
+
+E.g. https://localhost:5432/api/users
+
+Verify with Kian Controller Details.
+-->
+<div class="settings-container" style="display: flex; min-height: 100vh; background: #fafbfc;">
+    <!-- Sidebar -->
+    <aside class="settings-sidebar" style="width: 220px; background: #fff; border-right: 1px solid #e5e7eb; padding: 2rem 1rem;">
+        <h4 style="margin-bottom: 2rem; color: #2d7ff9;">Settings Menu</h4>
+        <nav>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 1.2rem;"><a href="/Profile" style="text-decoration:none; color:#000;"><span class="bi bi-person"></span> Profile Settings</a></li>
+                <li style="margin-bottom: 1.2rem;"><a href="/Account" style="text-decoration:none; color:#000;"><span class="bi bi-lock"></span> Account Security</a></li>
+                <li style="margin-bottom: 1.2rem;"><a href="/Notifications" style="text-decoration:none; color:#000;"><span class="bi bi-bell"></span> Notifications</a></li>
+                <li style="margin-bottom: 1.2rem;"><a href="/Preferences" style="text-decoration:none; color:#000;"><span class="bi bi-sliders"></span> Preferences</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="settings-main" style="flex: 1; padding: 2rem;">
+        <h2 style="color: #2d7ff9; margin-bottom: 2rem;">Settings</h2>
+
+        <!-- Profile Settings -->
+        <section style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 2rem; margin-bottom: 2rem;">
+            <h5 style="font-weight: bold; margin-bottom: 1rem;">Profile Settings</h5>
+            <p style="color: #888; font-size: 0.95rem;">Update your name, email, and contact information.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+                <div>
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" value="Alex Johnson" />
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" class="form-control" value="alex.johnson@campuslearn.ac.za" />
+                </div>
+                <div>
+                    <label>Phone Number</label>
+                    <input type="text" class="form-control" value="+27 079 123-4567" />
+                </div>
+                <div>
+                    <label>Address</label>
+                    <input type="text" class="form-control" value="123 University Ave, Campus City, ZA 0002" />
+                </div>
+            </div>
+            <button class="btn btn-primary" style="margin-top: 1rem;">Save Changes</button>
+        </section>
+
+        <!-- Account Security -->
+        <section style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 2rem; margin-bottom: 2rem;">
+            <h5 style="font-weight: bold; margin-bottom: 1rem;">Account Security</h5>
+            <p style="color: #888; font-size: 0.95rem;">Change your password or manage two-factor authentication.</p>
+            <div style="margin-top: 1rem;">
+                <label>Current Password</label>
+                <input type="password" class="form-control" />
+            </div>
+            <div style="margin-top: 1rem;">
+                <label>New Password</label>
+                <input type="password" class="form-control" />
+            </div>
+            <div style="margin-top: 1rem;">
+                <label>Confirm New Password</label>
+                <input type="password" class="form-control" />
+            </div>
+            <button class="btn btn-primary" style="margin-top: 1rem;">Update Password</button>
+        </section>
+
+        <!-- Notifications -->
+        <section style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 2rem; margin-bottom: 2rem;">
+            <h5 style="font-weight: bold; margin-bottom: 1rem;">Notifications</h5>
+            <p style="color: #888; font-size: 0.95rem;">Manage your email and push notifications.</p>
+            <div style="margin-top: 1rem;">
+                <div>
+                    <input type="checkbox" id="emailNotify" checked />
+                    <label for="emailNotify" style="margin-left: 0.5rem;">Email Notifications</label>
+                </div>
+                <div style="margin-top: 0.5rem;">
+                    <input type="checkbox" id="pushNotify" />
+                    <label for="pushNotify" style="margin-left: 0.5rem;">Push Notifications</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preferences -->
+        <section style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 2rem;">
+            <h5 style="font-weight: bold; margin-bottom: 1rem;">Preferences</h5>
+            <p style="color: #888; font-size: 0.95rem;">Customize your CampusLearn experience.</p>
+            <div style="margin-top: 1rem;">
+                <div style="margin-bottom: 0.5rem;">
+                    <label>Theme</label>
+                    <select class="form-control">
+                        <option>Light</option>
+                        <option>Dark</option>
+                        <option>System Default</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 0.5rem;">
+                    <label>Language</label>
+                    <select class="form-control">
+                        <option>English</option>
+                        <option>Spanish</option>
+                        <option>French</option>
+                    </select>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <input type="checkbox" id="newsletter" checked />
+                    <label for="newsletter" style="margin-left: 0.5rem;">Subscribe to newsletter</label>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

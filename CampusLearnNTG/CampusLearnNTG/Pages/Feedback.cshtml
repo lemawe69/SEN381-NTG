@@ -1,0 +1,261 @@
+﻿@page "/feedback"
+@model CampusLearnNTG.Pages.FeedbackModel
+@{
+    ViewData["Title"] = "Feedback";
+}
+<!--
+Restfull API Endpoints Examples use this as a gide:
+| HTTP Method | Endpoint        | Action                       |
+| ----------- | --------------- | ---------------------------- |
+| GET         | /api/users      | Retrieve a list of all users |
+| GET         | /api/users/{id} | Retrieve a single user       |
+| POST        | /api/users      | Create a new user            |
+| PUT/PATCH   | /api/users/{id} | Update an existing user      |
+| DELETE      | /api/users/{id} | Delete a user                |
+
+E.g. https://localhost:5432/api/users
+
+Verify with Kian Controller Details.
+-->
+<div class="feedback-container">
+    <!-- Sidebar -->
+    <aside class="feedback-sidebar">
+        <nav>
+            <ul>
+                <li><span class="bi bi-house-door"></span> Dashboard</li>
+                <li><span class="bi bi-journal-text"></span> Courses</li>
+                <li class="active"><span class="bi bi-chat-dots"></span> Feedback</li>
+                <li><span class="bi bi-person"></span> Profile</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="feedback-main">
+        <!-- Top Bar -->
+        <div class="topbar">
+            <button class="btn btn-logout">Logout</button>
+            <span class="bi bi-person-circle profile-icon"></span>
+        </div>
+
+        <h2>Feedback</h2>
+
+        <!-- Feedback Card -->
+        <section class="feedback-card">
+            <h4>Submit Your Feedback</h4>
+            <p>We value your opinion! Share your thoughts and suggestions to help us improve CampusLearn.</p>
+
+            <div class="form-group">
+                <label>Feedback Category / Course</label>
+                <select>
+                    <option>General Feedback</option>
+                    <option>Course Content</option>
+                    <option>Platform Usability</option>
+                    <option>Support</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Your Feedback Message</label>
+                <textarea>The platform is intuitive and easy to navigate. I appreciate the clear structure of the course materials. Perhaps adding a dark mode would be a nice feature!</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Overall Satisfaction</label>
+                <input type="range" min="1" max="5" value="4" />
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="anonymous" />
+                <label for="anonymous">Submit anonymously</label>
+            </div>
+
+            <button class="btn btn-primary btn-block">Submit Feedback</button>
+        </section>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+            <div>Quick Links &nbsp; | &nbsp; Support &nbsp; | &nbsp; Legal</div>
+            <div class="social-icons">
+                <span class="bi bi-facebook"></span>
+                <span class="bi bi-twitter"></span>
+                <span class="bi bi-instagram"></span>
+                <span class="bi bi-linkedin"></span>
+            </div>
+        </footer>
+    </main>
+</div>
+
+<style>
+    /* -------------------- Layout -------------------- */
+    .feedback-container {
+        display: flex;
+        min-height: 100vh;
+        background: #fafbfc;
+    }
+
+    .feedback-sidebar {
+        width: 200px;
+        background: #fff;
+        border-right: 1px solid #e5e7eb;
+        padding: 2rem 1rem;
+    }
+
+        .feedback-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feedback-sidebar li {
+            margin-bottom: 1.2rem;
+            cursor: pointer;
+        }
+
+            .feedback-sidebar li.active {
+                font-weight: bold;
+                color: #2d7ff9;
+            }
+
+    /* -------------------- Main -------------------- */
+    .feedback-main {
+        flex: 1;
+        padding: 2rem;
+    }
+
+    .topbar {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-icon {
+        font-size: 1.7rem;
+        color: #2d7ff9;
+        margin-left: 1rem;
+    }
+
+    .btn-logout {
+        background: #f44336;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+    }
+
+    /* -------------------- Heading -------------------- */
+    h2 {
+        color: #2d7ff9;
+        margin-bottom: 2rem;
+    }
+
+    /* -------------------- Feedback Card -------------------- */
+    .feedback-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        padding: 2rem;
+        max-width: 600px;
+        margin: auto;
+    }
+
+        .feedback-card h4 {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .feedback-card p {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+        .form-group label {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group select,
+        .form-group textarea,
+        .form-group input[type="range"] {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            box-sizing: border-box;
+        }
+
+    textarea {
+        min-height: 70px;
+    }
+
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+    }
+
+        .checkbox-group input {
+            margin-right: 0.5rem;
+        }
+
+    .btn-block {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    /* -------------------- Buttons -------------------- */
+    .btn {
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background: #2d7ff9;
+        color: white;
+    }
+
+    .btn-outline-primary {
+        background: transparent;
+        color: #2d7ff9;
+        border: 1px solid #2d7ff9;
+    }
+
+        .btn-outline-primary:hover {
+            background: #2d7ff9;
+            color: white;
+        }
+
+    /* -------------------- Footer -------------------- */
+    .page-footer {
+        margin-top: 3rem;
+        text-align: center;
+        color: #888;
+        font-size: 0.95rem;
+    }
+
+    .social-icons span {
+        margin-right: 0.5rem;
+        cursor: pointer;
+    }
+
+    /* -------------------- Responsive -------------------- */
+    media (max-width: 768px) {
+        .feedback-container {
+            flex-direction: column;
+        }
+
+        .feedback-sidebar {
+            width: 100%;
+        }
+    }
+</style>

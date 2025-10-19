@@ -1,0 +1,241 @@
+﻿@page
+@model CampusLearnNTG.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+<!--
+Restfull API Endpoints Examples use this as a gide:
+| HTTP Method | Endpoint        | Action                       |
+| ----------- | --------------- | ---------------------------- |
+| GET         | /api/users      | Retrieve a list of all users |
+| GET         | /api/users/{id} | Retrieve a single user       |
+| POST        | /api/users      | Create a new user            |
+| PUT/PATCH   | /api/users/{id} | Update an existing user      |
+| DELETE      | /api/users/{id} | Delete a user                |
+
+E.g. https://localhost:5432/api/users
+
+Verify with Kian Controller Details.
+-->
+<div class="DevMode">
+    <span>Developer-----></span>
+    <a class="signup-link" href="/Shared/Nav">Raw</a>
+</div>
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Welcome to Campus Learn:<br />Your Hub for Collaborative Education</h1>
+        <p>
+            Unlock your potential with personalized learning experiences, expert tutors, and a vibrant student community. Join us to learn, grow, and succeed together.
+        </p>
+        <a href="/signup" class="btn btn-primary">Start Your Learning Journey</a>
+    </div>
+</div>
+
+<!-- Why Choose Section -->
+<section class="features-section">
+    <h2>Why Choose CampusLearn?</h2>
+    <div class="features-row">
+        <div class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h4>Expert-Led Courses</h4>
+            <p>Access a vast library of courses taught by certified professionals and experienced educators.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h4>Vibrant Community</h4>
+            <p>Connect with peers, collaborate on projects, and engage in public forums to enhance your learning.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📅</div>
+            <h4>Flexible Scheduling</h4>
+            <p>Book one-on-one sessions with tutors at your convenience, designed to fit your busy lifestyle.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Portal Access Section -->
+<section class="portal-section">
+    <h2>Access Your CampusLearn Portal</h2>
+    <div class="portal-row">
+        <div class="portal-card">
+            <div class="portal-icon">🎓</div>
+            <h4>Student Login</h4>
+            <p>Access your courses, schedule, and learning materials.</p>
+            <a href="/login" class="btn btn-outline-primary">Login as Student</a>
+        </div>
+        <div class="portal-card">
+            <div class="portal-icon">👨‍🏫</div>
+            <h4>Tutor Login</h4>
+            <p>Manage sessions, upload resources, and connect with your students.</p>
+            <a href="/login" class="btn btn-outline-primary">Login as Tutor</a>
+        </div>
+        <div class="portal-card">
+            <div class="portal-icon">⚙️</div>
+            <h4>Admin Login</h4>
+            <p>Oversee users, moderate content, and configure platform settings.</p>
+            <a href="/login" class="btn btn-outline-primary">Login as Admin</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* -------------------- General -------------------- */
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f9fafb;
+        color: #1f2937;
+    }
+
+    /* -------------------- Hero -------------------- */
+    .hero-section {
+        position: relative;
+        background: url('/images/hero-bg.jpg') center/cover no-repeat;
+        min-height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        color: #1f2937;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 700px;
+        margin: auto;
+    }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+    .btn-primary {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 6px;
+        background: #007ACC;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: #005a9e;
+        }
+
+    /* -------------------- Features -------------------- */
+    .features-section {
+        text-align: center;
+        padding: 3rem 1rem;
+    }
+
+        .features-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+    .features-row {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .feature-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        padding: 2rem;
+        width: 260px;
+        text-align: center;
+    }
+
+    .feature-icon {
+        font-size: 2rem;
+        color: #6c63ff;
+        margin-bottom: 1rem;
+    }
+
+    /* -------------------- Portal -------------------- */
+    .portal-section {
+        text-align: center;
+        padding: 3rem 1rem;
+    }
+
+        .portal-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+    .portal-row {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .portal-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        padding: 2rem;
+        width: 260px;
+        text-align: center;
+    }
+
+    .portal-icon {
+        font-size: 2rem;
+        color: #6c63ff;
+        margin-bottom: 1rem;
+    }
+
+    .btn-outline-primary {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: 2px solid #007ACC;
+        color: #007ACC;
+        text-decoration: none;
+        margin-top: 1rem;
+        width: 100%;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline-primary:hover {
+            background: #007ACC;
+            color: white;
+        }
+
+    /* -------------------- Responsive -------------------- */
+    media (max-width: 768px) {
+        .features-row, .portal-row {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>

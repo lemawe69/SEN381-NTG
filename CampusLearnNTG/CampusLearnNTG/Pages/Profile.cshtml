@@ -1,0 +1,268 @@
+﻿@page "/profile"
+@model CampusLearnNTG.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+<!--
+Restfull API Endpoints Examples use this as a gide:
+| HTTP Method | Endpoint        | Action                       |
+| ----------- | --------------- | ---------------------------- |
+| GET         | /api/users      | Retrieve a list of all users |
+| GET         | /api/users/{id} | Retrieve a single user       |
+| POST        | /api/users      | Create a new user            |
+| PUT/PATCH   | /api/users/{id} | Update an existing user      |
+| DELETE      | /api/users/{id} | Delete a user                |
+
+E.g. https://localhost:5432/api/users
+
+Verify with Kian Controller Details.
+-->
+<div class="profile-container">
+    <!-- Sidebar -->
+    <aside class="profile-sidebar">
+        <nav>
+            <ul>
+                <li><span class="bi bi-house-door"></span> Dashboard</li>
+                <li><span class="bi bi-journal-text"></span> Courses</li>
+                <li><span class="bi bi-chat-dots"></span> Feedback</li>
+                <li class="active"><span class="bi bi-person"></span> Profile</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="profile-main">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <button class="btn btn-outline-danger">Logout</button>
+            <span class="bi bi-person-circle profile-icon"></span>
+        </div>
+
+        <h2>User Profile</h2>
+
+        <!-- Profile Card -->
+        <section class="card profile-card">
+            <div class="profile-header">
+                <div class="avatar">JD</div>
+                <div class="name">John Doe</div>
+                <div class="student-info">Student ID: ST-1234-2023</div>
+                <div class="department">Computer Science</div>
+                <button class="btn btn-outline-primary">Edit Profile</button>
+            </div>
+        </section>
+
+        <!-- Personal Information -->
+        <section class="card personal-info">
+            <h5>Personal Information</h5>
+            <p>Manage your contact details and basic information.</p>
+            <div class="info-grid">
+                <div>
+                    <label>First Name</label>
+                    <input type="text" class="form-control" value="John" readonly />
+                </div>
+                <div>
+                    <label>Phone Number</label>
+                    <input type="text" class="form-control" value="+27 079 123-4567" readonly />
+                </div>
+                <div>
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" value="Doe" readonly />
+                </div>
+                <div>
+                    <label>Date of Birth</label>
+                    <input type="text" class="form-control" value="2004-07-21" readonly />
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" class="form-control" value="john.doe@campuslearn.ac.za" readonly />
+                </div>
+                <div>
+                    <label>Address</label>
+                    <input type="text" class="form-control" value="123 University Ave, Campus City, ZA 0002" readonly />
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Details -->
+        <section class="card academic-details">
+            <h5>Academic Details</h5>
+            <p>Overview of your academic progress.</p>
+            <div class="academic-grid">
+                <div>
+                    <strong>Major</strong>
+                    <div>Software Engineering</div>
+                    <strong>Year of Study</strong>
+                    <div>3rd Year</div>
+                    <strong>Cumulative GPA</strong>
+                    <div>3.85</div>
+                </div>
+                <div>
+                    <strong>Enrolled Courses</strong>
+                    <ul>
+                        <li>Advanced Algorithms (CS401)</li>
+                        <li>Database Systems (CS306)</li>
+                        <li>Web Development (CS210)</li>
+                        <li>Artificial Intelligence (CS412)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Settings -->
+        <section class="card account-settings">
+            <h5>Account Settings</h5>
+            <p>Configure your preferences and security.</p>
+            <button class="btn btn-outline-primary">Change Password</button>
+            <button class="btn btn-link">Receive Email Notifications</button>
+            <div class="profile-public">
+                <label>Make Profile Public</label>
+                <input type="checkbox" />
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div>Quick Links &nbsp; | &nbsp; Support &nbsp; | &nbsp; Legal</div>
+            <div>
+                <span class="bi bi-facebook"></span>
+                <span class="bi bi-twitter"></span>
+                <span class="bi bi-instagram"></span>
+                <span class="bi bi-linkedin"></span>
+            </div>
+        </footer>
+    </main>
+</div>
+
+<style>
+    /* -------------------- Profile Page -------------------- */
+    .profile-container {
+        display: flex;
+        min-height: 100vh;
+        background: #fafbfc;
+    }
+
+    .profile-sidebar {
+        width: 200px;
+        background: #fff;
+        border-right: 1px solid #e5e7eb;
+        padding: 2rem 1rem;
+    }
+
+        .profile-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .profile-sidebar li {
+            margin-bottom: 1.2rem;
+        }
+
+            .profile-sidebar li.active {
+                font-weight: bold;
+                color: #2d7ff9;
+            }
+
+    .profile-main {
+        flex: 1;
+        padding: 2rem;
+    }
+
+    .top-bar {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-icon {
+        font-size: 1.7rem;
+        color: #2d7ff9;
+        margin-left: 1rem;
+    }
+
+    h2 {
+        color: #2d7ff9;
+        margin-bottom: 2rem;
+    }
+
+    .card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .profile-card .profile-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #eaf0fe;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        color: #2d7ff9;
+        margin-bottom: 1rem;
+    }
+
+    .profile-header .name {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .profile-header .student-info,
+    .profile-header .department {
+        font-size: 0.95rem;
+        color: #888;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .academic-grid {
+        display: flex;
+        gap: 2rem;
+    }
+
+        .academic-grid div ul {
+            padding-left: 1rem;
+            margin: 0;
+        }
+
+    .account-settings .profile-public {
+        margin-top: 1rem;
+    }
+
+    .footer {
+        margin-top: 3rem;
+        text-align: center;
+        color: #888;
+        font-size: 0.95rem;
+    }
+
+        .footer span {
+            margin-right: 0.5rem;
+        }
+
+    /* -------------------- Responsive -------------------- */
+    media (max-width: 768px) {
+        .academic-grid {
+            flex-direction: column;
+        }
+
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

@@ -1,0 +1,426 @@
+﻿@page
+@model CampusLearnNTG.Pages.StudentDashboardModel
+@{
+    ViewData["Title"] = "Student Dashboard";
+}
+<!--
+Restfull API Endpoints Examples use this as a gide:
+| HTTP Method | Endpoint        | Action                       |
+| ----------- | --------------- | ---------------------------- |
+| GET         | /api/users      | Retrieve a list of all users |
+| GET         | /api/users/{id} | Retrieve a single user       |
+| POST        | /api/users      | Create a new user            |
+| PUT/PATCH   | /api/users/{id} | Update an existing user      |
+| DELETE      | /api/users/{id} | Delete a user                |
+
+E.g. https://localhost:5432/api/users
+
+Verify with Kian Controller Details.
+-->
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+        <h4>Student Menu</h4>
+        <nav>
+            <ul>
+                <li><span class="bi bi-house-door"></span> Dashboard Home</li>
+                <li><span class="bi bi-person"></span> My Profile</li>
+                <li><span class="bi bi-calendar"></span> Course Schedule</li>
+                <li><span class="bi bi-journal-text"></span> Learning Materials</li>
+                <li><span class="bi bi-chat-dots"></span> Messaging</li>
+                <li><span class="bi bi-people"></span> Public Forum</li>
+            </ul>
+        </nav>
+        <div class="sidebar-settings"><span class="bi bi-gear"></span> Settings</div>
+        <div class="sidebar-footer">CampusLearn</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Top Bar -->
+        <div class="dashboard-topbar">
+            <nav>
+                <a href="/">Home</a>
+                <a href="/signup">Register</a>
+                <a href="#">Courses</a>
+                <a href="#">Messages</a>
+            </nav>
+            <button class="btn-logout">Logout</button>
+            <span class="bi bi-person-circle topbar-avatar"></span>
+        </div>
+
+        <!-- Dashboard Title -->
+        <h2>Student Dashboard:</h2>
+
+        <!-- Dashboard Grid Row 1 -->
+        <div class="dashboard-grid">
+            <!-- Welcome Card -->
+            <section class="dashboard-card welcome-card">
+                <h3>Welcome, Alex Johnson!</h3>
+                <p>Overview of your progress and activities.</p>
+                <div class="profile-overview">
+                    <div class="avatar"><span class="bi bi-person"></span></div>
+                    <div>
+                        <div class="name">Alex Johnson</div>
+                        <div class="id">Student ID: 512346</div>
+                        <div class="status">Status: Active</div>
+                    </div>
+                </div>
+                <div class="progress-text">Overall Progress: 75%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+            </section>
+
+            <!-- Upcoming Sessions -->
+            <section class="dashboard-card">
+                <h4>Upcoming Sessions</h4>
+                <p>Your next classes and appointments.</p>
+                <div class="session-list">
+                    <div>
+                        <div class="session-title">Advanced Calculus</div>
+                        <div class="session-info">Dr. Emily White - Oct 26, 10:00 AM</div>
+                        <button class="btn-session">Join Session</button>
+                    </div>
+                    <div>
+                        <div class="session-title">Literary Analysis</div>
+                        <div class="session-info">Prof. Ben Carter - Oct 27, 02:00 PM</div>
+                        <button class="btn-session">Join Session</button>
+                    </div>
+                    <div>
+                        <div class="session-title">Quantum Physics I</div>
+                        <div class="session-info">Dr. Lena Khan - Oct 28, 11:00 AM</div>
+                        <button class="btn-session">Join Session</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Materials -->
+            <section class="dashboard-card">
+                <h4>Learning Materials</h4>
+                <p>Access your course resources.</p>
+                <div class="material-list">
+                    <div>
+                        <div class="material-title">Calculus III Notes - Chapter 5</div>
+                        <div class="material-type">PDF</div>
+                        <a href="#" class="material-link">View</a>
+                    </div>
+                    <div>
+                        <div class="material-title">Shakespeare Sonnets Analysis - Handout</div>
+                        <div class="material-type">PDF</div>
+                        <a href="#" class="material-link">View</a>
+                    </div>
+                    <div>
+                        <div class="material-title">Physics Equations - Cheat Sheet</div>
+                        <div class="material-type">PDF</div>
+                        <a href="#" class="material-link">View</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Dashboard Grid Row 2 -->
+        <div class="dashboard-grid second-row">
+            <!-- Recent Messages -->
+            <section class="dashboard-card">
+                <h4>Recent Messages</h4>
+                <p>Your latest chats and discussions.</p>
+                <div class="message-list">
+                    <div class="message-item">
+                        <span class="bi bi-person-circle message-avatar"></span>
+                        <div>
+                            <div class="message-sender">Dr. Emily White</div>
+                            <div class="message-text">Reminder for tomorrow's session.</div>
+                            <div class="message-time">2 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="message-item">
+                        <span class="bi bi-people message-avatar"></span>
+                        <div>
+                            <div class="message-sender">Study Group Physics</div>
+                            <div class="message-text">Anyone free to meet for the project?</div>
+                            <div class="message-time">30 mins ago</div>
+                        </div>
+                    </div>
+                    <div class="message-item">
+                        <span class="bi bi-person-circle message-avatar"></span>
+                        <div>
+                            <div class="message-sender">Prof. Ben Carter</div>
+                            <div class="message-text">Your essay draft feedback is ready.</div>
+                            <div class="message-time">1 day ago</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="view-all-link">View All Messages</a>
+            </section>
+
+            <!-- Community Forum -->
+            <section class="dashboard-card forum-card">
+                <h4>Community Forum</h4>
+                <p>Connect with peers and instructors.</p>
+                <div class="forum-placeholder">
+                    <span class="bi bi-chat-dots"></span>
+                    <p>Engage in discussions, ask questions, and share knowledge.</p>
+                    <a href="#" class="btn-forum">Go to Forum</a>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <div>Quick Links &nbsp; | &nbsp; Support &nbsp; | &nbsp; Company</div>
+            <div>
+                <span class="bi bi-facebook"></span>
+                <span class="bi bi-twitter"></span>
+                <span class="bi bi-instagram"></span>
+                <span class="bi bi-linkedin"></span>
+            </div>
+        </footer>
+    </main>
+</div>
+
+<style>
+/* -------------------- Student Dashboard -------------------- */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background: #fafbfc;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+    width: 220px;
+    background: #fff;
+    border-right: 1px solid #e5e7eb;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.dashboard-sidebar h4 {
+    margin-bottom: 2rem;
+    color: #2d7ff9;
+}
+.dashboard-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.dashboard-sidebar li {
+    margin-bottom: 1.2rem;
+}
+.sidebar-settings {
+    margin-top: 2rem;
+    color: #888;
+}
+.sidebar-footer {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: #b0b0b0;
+    font-size: 0.95rem;
+}
+
+/* Main */
+.dashboard-main {
+    flex: 1;
+    padding: 2rem;
+}
+.dashboard-topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.dashboard-topbar nav a {
+    margin-right: 2rem;
+    text-decoration: none;
+    color: #2d7ff9;
+    font-weight: 500;
+}
+.btn-logout {
+    margin-right: 1rem;
+    border: 1px solid #dc3545;
+    background: transparent;
+    color: #dc3545;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.topbar-avatar {
+    font-size: 1.7rem;
+    color: #2d7ff9;
+}
+
+/* Titles */
+.dashboard-main h2 {
+    color: #2d7ff9;
+    margin-bottom: 2rem;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.second-row {
+    margin-top: 2rem;
+}
+.dashboard-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 2rem;
+}
+
+/* Welcome Card */
+.welcome-card .profile-overview {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #eaf0fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #2d7ff9;
+    margin-right: 1.5rem;
+}
+.name {
+    font-weight: bold;
+}
+.id, .status {
+    font-size: 0.95rem;
+    color: #888;
+}
+.progress-text {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+.progress-bar {
+    background: #eaf0fe;
+    border-radius: 6px;
+    height: 8px;
+    width: 100%;
+}
+.progress-fill {
+    background: #2d7ff9;
+    height: 8px;
+    border-radius: 6px;
+}
+
+/* Sessions */
+.session-list div {
+    margin-bottom: 1.2rem;
+}
+.session-title {
+    font-weight: bold;
+}
+.session-info {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+.btn-session {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    border: none;
+    background: #2d7ff9;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Materials */
+.material-list div {
+    margin-bottom: 1.2rem;
+}
+.material-title {
+    font-weight: bold;
+}
+.material-type {
+    font-size: 0.95rem;
+    color: #888;
+}
+.material-link {
+    font-size: 0.85rem;
+    color: #2d7ff9;
+    text-decoration: none;
+}
+.material-link:hover {
+    text-decoration: underline;
+}
+
+/* Messages */
+.message-list .message-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+.message-avatar {
+    font-size: 1.5rem;
+    color: #2d7ff9;
+    margin-right: 0.7rem;
+}
+.message-sender {
+    font-weight: bold;
+}
+.message-text {
+    font-size: 0.95rem;
+    color: #888;
+}
+.message-time {
+    font-size: 0.85rem;
+    color: #b0b0b0;
+}
+.view-all-link {
+    display: block;
+    margin-top: 1rem;
+    color: #2d7ff9;
+    font-size: 0.95rem;
+}
+
+/* Forum Card */
+.forum-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.forum-placeholder span {
+    font-size: 2.5rem;
+    color: #2d7ff9;
+    margin-bottom: 1rem;
+}
+.forum-placeholder p {
+    font-size: 0.98rem;
+    color: #888;
+}
+.btn-forum {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+    background: #2d7ff9;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Footer */
+.dashboard-footer {
+    margin-top: 3rem;
+    text-align: center;
+    color: #888;
+    font-size: 0.95rem;
+}
+.dashboard-footer span {
+    margin-right: 0.5rem;
+}
+</style>
