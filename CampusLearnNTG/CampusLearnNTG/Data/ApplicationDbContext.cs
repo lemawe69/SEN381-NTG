@@ -9,5 +9,9 @@ namespace CampusLearnNTG.Data
             : base(options) { }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<ForumPost> ForumPosts { get; set; }
+        public DbSet<ForumReply> ForumReplies { get; set; }
+        public DbSet<PrivateMessage> PrivateMessages { get; set; }
+
     }
 }
