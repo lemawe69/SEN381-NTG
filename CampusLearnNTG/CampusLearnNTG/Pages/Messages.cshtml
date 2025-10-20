@@ -1,0 +1,94 @@
+﻿@page
+@model CampusLearnNTG.Pages.MessagesModel
+@{
+    ViewData["Title"] = "Private Messages";
+}
+
+<div class="messages-container">
+    <div class="sidebar">
+        <h2>Contacts</h2>
+        <ul id="contactsList">
+            @foreach (var contact in Model.Contacts)
+            {
+                <li>
+                    <a asp-page="/Messages" asp-route-contactId="@contact.Id">
+                        @contact.Name (@contact.Role)
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="chat-area">
+        @if (Model.SelectedContact != null)
+        {
+            <h2>Chat with @Model.SelectedContact.Name</h2>
+            <div id="chatBox" class="chat-box">
+                @foreach (var msg in Model.Conversation)
+                {
+                    <div class="message @(msg.SenderId == Model.CurrentUserId ? "sent" : "received")">
+                        <p>@msg.Content</p>
+                        <small>@msg.SentAt.ToString("HH:mm")</small>
+                    </div>
+                }
+            </div>
+
+            <form method="post">
+                <input type="hidden" asp-for="Message.ReceiverId" />
+                <textarea asp-for="Message.Content" placeholder="Type your message..." required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        }
+        else
+        {
+            <p>Select a contact to start chatting.</p>
+        }
+    </div>
+</div>
+
+<style>
+    .messages-container {
+        display: flex;
+        height: 80vh;
+        border: 1px solid #ccc;
+    }
+
+    .sidebar {
+        width: 25%;
+        border-right: 1px solid #ccc;
+        overflow-y: auto;
+        padding: 10px;
+    }
+
+    .chat-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .chat-box {
+        flex: 1;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .message {
+        margin: 5px 0;
+        max-width: 70%;
+        padding: 8px 12px;
+        border-radius: 10px;
+    }
+
+    .sent {
+        background-color: #d1e7dd;
+        align-self: flex-end;
+    }
+
+    .received {
+        background-color: #f8d7da;
+        align-self: flex-start;
+    }
+</style>
