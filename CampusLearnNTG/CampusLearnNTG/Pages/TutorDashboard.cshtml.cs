@@ -1,9 +1,7 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
-namespace CampusLearnNTG.Pages
+[Authorize(Roles = "Tutor")]
+public class TutorDashboardModel : PageModel
 {
-    public class LecturerDashboardModel : PageModel
-    {
-        public void OnGet() { }
-    }
+    public void OnGet() { }
 }

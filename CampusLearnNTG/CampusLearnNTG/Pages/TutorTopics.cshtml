@@ -1,0 +1,57 @@
+@page
+@model CampusLearnNTG.Pages.TutorTopicsModel
+@{
+    ViewData["Title"] = "Tutor Topic Manager";
+}
+
+<h2>Tutor Topic Manager</h2>
+<p>Here are the topics created by students. You can upload multiple resources per topic (PDF, Word, PPT, images).</p>
+
+@if (!Model.Topics.Any())
+{
+    <p>No topics available yet.</p>
+}
+else
+{
+    <div style="display:flex; flex-direction:column; gap:12px;">
+        @foreach (var topic in Model.Topics)
+        {
+            <div style="border:1px solid #ddd; padding:14px; border-radius:8px;">
+                <h4>@topic.Title</h4>
+                <p>@topic.Description</p>
+                <small>Created by: @topic.CreatedBy on @topic.CreatedAt</small>
+
+                <div style="margin-top:10px;">
+                    <!-- Upload form for this topic -->
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="TopicId" value="@topic.Id" />
+                        <label>Upload files (multiple allowed):</label><br />
+                        <input type="file" name="UploadFiles" multiple />
+                        <button type="submit" formaction="?handler=Upload">Upload</button>
+                    </form>
+                </div>
+
+                @if (topic.Materials != null && topic.Materials.Any())
+                {
+                    <div style="margin-top:10px;">
+                        <strong>Materials:</strong>
+                        <ul>
+                            @foreach (var file in topic.Materials)
+                            {
+                                var url = Url.Content($"~/uploads/topics/{topic.Id}/{file}");
+                                <li>
+                                    <a href="@url" target="_blank" download>@file</a>
+                                    <form method="post" style="display:inline-block; margin-left:8px;">
+                                        <input type="hidden" name="TopicId" value="@topic.Id" />
+                                        <input type="hidden" name="Filename" value="@file" />
+                                        <button type="submit" formaction="?handler=DeleteMaterial">Delete</button>
+                                    </form>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}

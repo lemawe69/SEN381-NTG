@@ -1,0 +1,44 @@
+@page
+@model CampusLearnNTG.Pages.UserManagementModel
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<h2>User Management</h2>
+
+<table border="1" cellpadding="8">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Current Role</th>
+            <th>Assign New Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@(Model.UserRoles.ContainsKey(user.Id) ? Model.UserRoles[user.Id] : "None")</td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="UserId" value="@user.Id" />
+                        <select name="NewRole">
+                            <option value="Student">Student</option>
+                            <option value="Tutor">Tutor</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                        <button type="submit" formaction="?handler=AssignRole">Assign Role</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="UserId" value="@user.Id" />
+                        <button type="submit" formaction="?handler=DeleteUser">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

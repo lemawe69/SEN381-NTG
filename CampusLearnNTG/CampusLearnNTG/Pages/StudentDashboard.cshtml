@@ -3,41 +3,58 @@
 @{
     ViewData["Title"] = "Student Dashboard";
 }
-<!--
-Restfull API Endpoints Examples use this as a gide:
-| HTTP Method | Endpoint        | Action                       |
-| ----------- | --------------- | ---------------------------- |
-| GET         | /api/users      | Retrieve a list of all users |
-| GET         | /api/users/{id} | Retrieve a single user       |
-| POST        | /api/users      | Create a new user            |
-| PUT/PATCH   | /api/users/{id} | Update an existing user      |
-| DELETE      | /api/users/{id} | Delete a user                |
 
-E.g. https://localhost:5432/api/users
+<style>
+    /* Topic section styling */
+    .topic-section { margin-top: 30px; }
+    .topic-card {
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+    }
+    .topic-card h4 { margin: 0; }
+    .topic-card small { color: gray; }
 
-Verify with Kian Controller Details.
--->
+    /* Modal styling */
+    .modal {
+        display:none;
+        position:fixed;
+        top:0; left:0;
+        width:100%; height:100%;
+        background:rgba(0,0,0,0.5);
+        justify-content:center;
+        align-items:center;
+    }
+    .modal-content {
+        background:white;
+        padding:20px;
+        border-radius:8px;
+        width:350px;
+    }
+</style>
+
 <div class="dashboard-container">
     <!-- Sidebar -->
     <aside class="dashboard-sidebar">
         <h4>Student Menu</h4>
         <nav>
             <ul>
-                <li><span class="bi bi-house-door"></span> Dashboard Home</li>
-                <li><span class="bi bi-person"></span> My Profile</li>
-                <li><span class="bi bi-calendar"></span> Course Schedule</li>
-                <li><span class="bi bi-journal-text"></span> Learning Materials</li>
-                <li><span class="bi bi-chat-dots"></span> Messaging</li>
-                <li><span class="bi bi-people"></span> Public Forum</li>
+                <li><a asp-page="/StudentDashboard"><span class="bi bi-house-door"></span> Dashboard Home</a></li>
+                <li><a asp-page="/Profile"><span class="bi bi-person"></span> My Profile</a></li>
+                <li><a asp-page="/Courses"><span class="bi bi-calendar"></span> Course Schedule</a></li>
+                <li><a asp-page="/LearningMaterials"><span class="bi bi-journal-text"></span> Learning Materials</a></li>
+                <li><a asp-page="/Messages"><span class="bi bi-chat-dots"></span> Messaging</a></li>
+                <li><a asp-page="/Forum"><span class="bi bi-people"></span> Public Forum</a></li>
             </ul>
         </nav>
-        <div class="sidebar-settings"><span class="bi bi-gear"></span> Settings</div>
+        <div class="sidebar-settings"><a asp-page="/Settings"><span class="bi bi-gear"></span> Settings</a></div>
         <div class="sidebar-footer">CampusLearn</div>
     </aside>
 
     <!-- Main Content -->
     <main class="dashboard-main">
-        <!-- Top Bar -->
         <div class="dashboard-topbar">
             <nav>
                 <a href="/">Home</a>
@@ -48,6 +65,72 @@ Verify with Kian Controller Details.
             <button class="btn-logout">Logout</button>
             <span class="bi bi-person-circle topbar-avatar"></span>
         </div>
+
+        <h2>Student Dashboard</h2>
+
+        <!-- TOPIC MANAGEMENT SECTION -->
+        <section class="topic-section">
+            <h3>Topic Management</h3>
+            <button id="btnCreateTopic">+ Create Topic</button>
+
+            <!-- Topic List -->
+            @if (Model.Topics.Any())
+            {
+                foreach (var topic in Model.Topics)
+                {
+                    <div class="topic-card">
+                        <h4>@topic.Title</h4>
+                        <p>@topic.Description</p>
+                        <small>Posted by: @topic.CreatedBy on @topic.CreatedAt</small>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No topics created yet.</p>
+            }
+            @if (topic.Materials.Any())
+            {
+                    <div>
+                        <strong>Materials (Tutor):</strong>
+                        <ul>
+            @foreach (var m in topic.Materials)
+            {
+                <li><a href="@Url.Content($"~/uploads/topics/{topic.Id}/{m}")" download>@m</a></li>
+            }
+                </ul>
+            </div>
+            }
+
+        </section>
+    </main>
+</div>
+
+<!-- Modal Popup -->
+<div id="topicModal" class="modal">
+    <div class="modal-content">
+        <h3>Create New Topic</h3>
+        <form method="post">
+            <label>Title</label>
+            <input type="text" name="TopicTitle" required />
+
+            <label>Description</label>
+            <textarea name="TopicDescription" required></textarea>
+
+            <button type="submit" formaction="?handler=CreateTopic">Create</button>
+            <button type="button" id="closeModal">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnCreateTopic").onclick = () => {
+        document.getElementById("topicModal").style.display = "flex";
+    };
+    document.getElementById("closeModal").onclick = () => {
+        document.getElementById("topicModal").style.display = "none";
+    };
+</script>
 
         <!-- Dashboard Title -->
         <h2>Student Dashboard:</h2>

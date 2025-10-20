@@ -3,21 +3,7 @@
 @{
     ViewData["Title"] = "Admin Dashboard";
 }
-<!--
-Restfull API Endpoints Examples use this as a gide:
-| HTTP Method | Endpoint        | Action                       |
-| ----------- | --------------- | ---------------------------- |
-| GET         | /api/users      | Retrieve a list of all users |
-| GET         | /api/users/{id} | Retrieve a single user       |
-| POST        | /api/users      | Create a new user            |
-| PUT/PATCH   | /api/users/{id} | Update an existing user      |
-| DELETE      | /api/users/{id} | Delete a user                |
-
-E.g. https://localhost:5432/api/users
-
-Verify with Kian Controller Details.
--->
-
+NOOB
 <div class="dashboard-container">
     <!-- Sidebar -->
     <aside class="dashboard-sidebar">
@@ -30,6 +16,8 @@ Verify with Kian Controller Details.
                 <li><span class="bi bi-bar-chart"></span> Platform Analytics</li>
                 <li><span class="bi bi-gear"></span> Platform Settings</li>
                 <li><span class="bi bi-bell"></span> Notifications</li>
+                <li><a asp-page="/UserManagement">Manage Users</a></li>
+
             </ul>
         </nav>
         <button class="btn btn-logout">Logout</button>

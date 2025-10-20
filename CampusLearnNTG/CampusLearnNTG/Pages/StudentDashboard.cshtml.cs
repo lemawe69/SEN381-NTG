@@ -1,9 +1,21 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using CampusLearnNTG.Services;
+using CampusLearnNTG.Models;
 
-namespace CampusLearnNTG.Pages
+public List<Topic> Topics { get; set; } = new List<Topic>();
+
+public void OnGet()
 {
-    public class StudentDashboardModel : PageModel
+    Topics = TopicService.GetTopics();
+}
+
+public IActionResult OnPostCreateTopic(string TopicTitle, string TopicDescription)
+{
+    TopicService.AddTopic(new Topic
     {
-        public void OnGet() { }
-    }
+        Title = TopicTitle,
+        Description = TopicDescription,
+        CreatedBy = User.Identity?.Name ?? "Student"
+    });
+
+    return RedirectToPage();
 }

@@ -1,0 +1,25 @@
+@page
+@model CampusLearnNTG.Pages.LearningMaterialsModel
+@{
+    ViewData["Title"] = "Learning Materials";
+}
+
+<h2>Learning Materials</h2>
+<p>Upload and view study materials here.</p>
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="UploadFile" />
+    <button type="submit">Upload File</button>
+</form>
+
+<hr />
+
+<h3>Available Files</h3>
+<ul>
+    @foreach (var file in Model.FileList)
+    {
+        <li>
+            <a href="@Url.Content("~/uploads/" + file)" download>@file</a>
+        </li>
+    }
+</ul>

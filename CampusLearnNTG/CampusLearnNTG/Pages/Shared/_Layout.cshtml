@@ -3,11 +3,38 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
+    <title>@ViewData["Title"] - CampusLearn</title>
     <link rel="icon" type="image/png" href="~/images/favicon.png" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    @RenderBody()
+    <header>
+        <nav>
+            <ul class="nav">
+                <li><a asp-page="/Index">Home</a></li>
+                <li><a asp-page="/Courses">Courses</a></li>
+                <li><a asp-page="/Forum">Forum</a></li>
+                <li><a asp-page="/Messages">Messages</a></li>
+                <li><a asp-page="/Chat">AI Chat</a></li>
+                <li><a asp-page="/Profile">Profile</a></li>
+                <li><a asp-page="/Settings">Settings</a></li>
+                <li>
+                    <form method="post" asp-page="/Logout">
+                        <button type="submit" style="background:none;border:none;color:white;cursor:pointer;">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <p>&copy; 2025 - CampusLearn NTG</p>
+    </footer>
 </body>
 </html>
-

@@ -1,0 +1,62 @@
+# Visual Studio cache
+.vs/
+*.vscode/
+
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+
+# Logs
+*.log
+
+# ASP.NET Publish
+wwwroot/*.map
+wwwroot/lib/
+publish/
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+# Backup & temp files
+*.tmp
+*.bak
+*.swp
+*.orig
+
+# IIS
+.vsconfig
+ApplicationHost.config
+
+# Entity Framework
+Migrations/
+
+# File uploads
+wwwroot/uploads/
+
+# Sensitive files
+secrets.json
+
+# OS files
+Thumbs.db
+ehthumbs.db
+.DS_Store

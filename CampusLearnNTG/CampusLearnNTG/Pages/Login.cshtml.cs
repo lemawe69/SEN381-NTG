@@ -1,23 +1,40 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
-namespace CampusLearnNTG.Pages
+public class LoginModel : PageModel
 {
-    public class LoginModel : PageModel
+    private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly UserManager<IdentityUser> _userManager;
+
+    public LoginModel(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
     {
-        [BindProperty] public string Username { get; set; } = "";
-        [BindProperty] public string Password { get; set; } = "";
-        public string? ErrorMessage { get; set; }
+        _signInManager = signInManager;
+        _userManager = userManager;
+    }
 
-        public IActionResult OnPost()
+    public async Task<IActionResult> OnPostAsync(string? returnUrl = null)
+    {
+        if (ModelState.IsValid)
         {
-            // Demo logic: redirect based on username
-            if (Username == "student") return RedirectToPage("/StudentDashboard");
-            if (Username == "lecturer") return RedirectToPage("/LecturerDashboard");
-            if (Username == "admin") return RedirectToPage("/AdminDashboard");
+            var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, false);
 
-            ErrorMessage = "Invalid credentials";
-            return Page();
+            if (result.Succeeded)
+            {
+                var user = await _userManager.FindByEmailAsync(Input.Email);
+                var roles = await _userManager.GetRolesAsync(user);
+
+                if (roles.Contains("Admin"))
+                    return RedirectToPage("/AdminDashboard");
+
+                if (roles.Contains("Tutor"))
+                    return RedirectToPage("/TutorDashboard");
+
+                return RedirectToPage("/StudentDashboard");
+            }
+
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
         }
+
+        return Page();
     }
 }

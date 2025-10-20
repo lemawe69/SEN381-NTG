@@ -183,3 +183,15 @@ C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NT
 C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\ref\CampusLearnNTG.dll
 C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\compressed\tf2kn0tosi-{0}-3r8b2a0bt1-3r8b2a0bt1.gz
 C:\Users\brand.LEM\Documents\Belgium\Belgium 3de jaar\SEN 381\Projects\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\compressed\78ijcxcp2y-{0}-wlzy028dx8-wlzy028dx8.gz
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\CampusLearnNTG.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\CampusLearnNTG.AssemblyInfoInputs.cache
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\CampusLearnNTG.AssemblyInfo.cs
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\CampusLearnNTG.csproj.CoreCompileInputs.cache
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\CampusLearnNTG.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\CampusLearnNTG.RazorAssemblyInfo.cache
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\CampusLearnNTG.RazorAssemblyInfo.cs
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\CampusLearnNTG.sourcelink.json
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\CampusLearnNTG.dll
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\refint\CampusLearnNTG.dll
+C:\Users\kobus\OneDrive\Documents\(3)Belgium Campus\SEN381\Project\SEN381-NTG\CampusLearnNTG\CampusLearnNTG\obj\Debug\net10.0\CampusLearnNTG.pdb
