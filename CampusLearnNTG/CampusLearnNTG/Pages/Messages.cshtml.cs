@@ -16,10 +16,10 @@ namespace CampusLearnNTG.Pages
         }
 
         [BindProperty]
-        public PrivateMessage Message { get; set; }
+        public Messages Message { get; set; }
 
         public List<User> Contacts { get; set; } = new();
-        public List<PrivateMessage> Conversation { get; set; } = new();
+        public List<Messages> Conversation { get; set; } = new();
         public User? SelectedContact { get; set; }
 
         public int CurrentUserId => 1; // Replace with session or auth ID
@@ -41,7 +41,7 @@ namespace CampusLearnNTG.Pages
                         .OrderBy(m => m.SentAt)
                         .ToListAsync();
 
-                    Message = new PrivateMessage
+                    Message = new Messages
                     {
                         ReceiverId = SelectedContact.Id,
                         SenderId = CurrentUserId

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CampusLearnNTG.Models
 {
-    public class PrivateMessage
+    public class Messages
     {
         [Key]
         public int Id { get; set; }

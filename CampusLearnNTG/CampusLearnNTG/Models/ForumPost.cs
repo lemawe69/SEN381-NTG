@@ -1,28 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace CampusLearnNTG.Models
+﻿namespace CampusLearnNTG.Models
 {
     public class ForumPost
     {
-        [Key]
         public int Id { get; set; }
-
-        [Required]
-        [MaxLength(200)]
-        public string Title { get; set; }
-
-        [Required]
-        public string Content { get; set; }
-
-        public int? AuthorId { get; set; }
-
-        [ForeignKey("AuthorId")]
-        public User? Author { get; set; }
-
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public int Upvotes { get; set; } = 0;
-        public bool IsAnonymous { get; set; } = false;
+        public string Author { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
+        public string Content { get; set; } = string.Empty;
+        public DateTime PostedAt { get; set; } = DateTime.Now;
+        public int Replies { get; set; }
+        public int Views { get; set; }
     }
 }
-

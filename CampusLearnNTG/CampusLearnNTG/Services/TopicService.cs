@@ -2,7 +2,7 @@ using CampusLearnNTG.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CampusLearnNTG.Services
+/* namespace CampusLearnNTG.Services 
 {
     public static class TopicService
     {
@@ -45,3 +45,4 @@ namespace CampusLearnNTG.Services
         }
     }
 }
+*/

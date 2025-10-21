@@ -29,7 +29,7 @@ namespace CampusLearnNTG.Controllers
         }
 
         [HttpPost("send")]
-        public async Task<IActionResult> Send([FromBody] PrivateMessage message)
+        public async Task<IActionResult> Send([FromBody] Messages message)
         {
             if (string.IsNullOrWhiteSpace(message.Content))
                 return BadRequest("Message cannot be empty.");
@@ -44,7 +44,7 @@ namespace CampusLearnNTG.Controllers
         {
             var contacts = await _db.Users
                 .Where(u => u.Id != userId)
-                .Select(u => new { u.Id, u.FullName, u.Role })
+                .Select(u => new { u.Id, u.Name, u.Role })
                 .ToListAsync();
 
             return Ok(contacts);

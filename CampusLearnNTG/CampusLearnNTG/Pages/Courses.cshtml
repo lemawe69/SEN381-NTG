@@ -1,259 +1,107 @@
-﻿@page "/courses"
+﻿@page
 @model CampusLearnNTG.Pages.CoursesModel
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Courses";
 }
-<!--
-Restfull API Endpoints Examples use this as a gide:
-| HTTP Method | Endpoint        | Action                       |
-| ----------- | --------------- | ---------------------------- |
-| GET         | /api/users      | Retrieve a list of all users |
-| GET         | /api/users/{id} | Retrieve a single user       |
-| POST        | /api/users      | Create a new user            |
-| PUT/PATCH   | /api/users/{id} | Update an existing user      |
-| DELETE      | /api/users/{id} | Delete a user                |
 
-E.g. https://localhost:5432/api/users
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
-Verify with Kian Controller Details.
--->
-<div class="courses-container">
-    <!-- Sidebar -->
-    <aside class="courses-sidebar">
-        <nav>
-            <ul>
-                <li><span class="bi bi-house-door"></span> Dashboard</li>
-                <li class="active"><span class="bi bi-journal-text"></span> Courses</li>
-                <li><span class="bi bi-chat-dots"></span> Feedback</li>
-                <li><span class="bi bi-person"></span> Profile</li>
-            </ul>
-        </nav>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="courses-main">
-        <!-- Top Bar -->
-        <div class="topbar">
-            <button class="btn btn-logout">Logout</button>
-            <span class="bi bi-person-circle profile-icon"></span>
-        </div>
-
-        <h2>Available Courses</h2>
-
-        <!-- Search and Filter -->
-        <div class="search-filter">
-            <input type="text" placeholder="Search courses..." />
-            <select>
-                <option>All Students</option>
-                <option>Registered</option>
-                <option>Unregistered</option>
-            </select>
-        </div>
-
-        <!-- Courses Grid -->
-        <div class="courses-grid">
-            <!-- Example Course Card -->
-            <div class="course-card">
-                <img src="/images/course-compsci.jpg" alt="Introduction to Computer Science" />
-                <div class="course-title">Introduction to Computer Science</div>
-                <div class="course-desc">A foundational course covering algorithms, data structures, and programming basics.</div>
-                <div class="course-actions">
-                    <button class="btn btn-outline-primary btn-sm">View Details</button>
-                    <button class="btn btn-primary btn-sm">Register</button>
+<div class="container-fluid py-4">
+    <div class="row">
+        
+        <!-- Main Content -->
+        <div class="col-md-10 px-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="fw-bold text-primary">Available Courses</h3>
+                <div>
+                    <button class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </button>
                 </div>
             </div>
 
-            <!-- Repeat other course cards as needed -->
-        </div>
-
-        <!-- Footer -->
-        <footer class="page-footer">
-            <div>Quick Links &nbsp; | &nbsp; Support &nbsp; | &nbsp; Legal</div>
-            <div class="social-icons">
-                <span class="bi bi-facebook"></span>
-                <span class="bi bi-twitter"></span>
-                <span class="bi bi-instagram"></span>
-                <span class="bi bi-linkedin"></span>
+            <!-- Search and Filter -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="input-group" style="max-width: 350px;">
+                    <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control border-start-0" placeholder="Search courses..." />
+                </div>
+                <select class="form-select" style="max-width: 200px;">
+                    <option selected>All Subjects</option>
+                    <option>Science</option>
+                    <option>Arts</option>
+                    <option>Mathematics</option>
+                    <option>Technology</option>
+                </select>
             </div>
-        </footer>
-    </main>
+
+            <!-- Course Cards -->
+            <div class="row g-4">
+                @foreach (var course in Model.Courses)
+                {
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card shadow-sm border-0 h-100">
+                            <img src="@course.ImageUrl" class="card-img-top rounded-top" alt="@course.Title" />
+                            <div class="card-body d-flex flex-column">
+                                <h6 class="fw-semibold">@course.Title</h6>
+                                <p class="text-muted small flex-grow-1">@course.Description</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="badge bg-light text-dark border">@course.Level</span>
+                                    <div class="text-end">
+                                        <button class="btn btn-outline-primary btn-sm me-2">View Details</button>
+                                        <button class="btn btn-primary btn-sm">Enroll</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <!-- Footer -->
+            <div class="d-flex justify-content-between text-muted small mt-5 px-3">
+                <div>Quick Links</div>
+                <div>Support</div>
+                <div>Legal</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <style>
-    /* -------------------- Layout -------------------- */
-    .courses-container {
-        display: flex;
-        min-height: 100vh;
-        background: #fafbfc;
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
     }
 
-    .courses-sidebar {
-        width: 200px;
-        background: #fff;
-        border-right: 1px solid #e5e7eb;
-        padding: 2rem 1rem;
+    .nav-link.active {
+        color: #2563eb !important;
     }
 
-        .courses-sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+    .card {
+        border-radius: 14px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         }
-
-        .courses-sidebar li {
-            margin-bottom: 1.2rem;
-            cursor: pointer;
-        }
-
-            .courses-sidebar li.active {
-                font-weight: bold;
-                color: #2d7ff9;
-            }
-
-    /* -------------------- Main -------------------- */
-    .courses-main {
-        flex: 1;
-        padding: 2rem;
-    }
-
-    .topbar {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin-bottom: 1.5rem;
-    }
-
-    .profile-icon {
-        font-size: 1.7rem;
-        color: #2d7ff9;
-        margin-left: 1rem;
-    }
-
-    .btn-logout {
-        background: #f44336;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-    }
-
-    /* -------------------- Search & Filter -------------------- */
-    .search-filter {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
-
-        .search-filter input, .search-filter select {
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .search-filter input {
-            flex: 1;
-        }
-
-        .search-filter select {
-            min-width: 180px;
-        }
-
-    /* -------------------- Courses Grid -------------------- */
-    .courses-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 2rem;
-    }
-
-    .course-card {
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-    }
-
-        .course-card img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-
-    .course-title {
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-    }
-
-    .course-desc {
-        color: #888;
-        font-size: 0.95rem;
-        flex: 1;
-    }
-
-    .course-actions {
-        margin-top: auto;
-        display: flex;
-        gap: 0.5rem;
-    }
-
-    /* -------------------- Footer -------------------- */
-    .page-footer {
-        margin-top: 3rem;
-        text-align: center;
-        color: #888;
-        font-size: 0.95rem;
-    }
-
-    .social-icons span {
-        margin-right: 0.5rem;
-        cursor: pointer;
-    }
-
-    /* -------------------- Buttons -------------------- */
-    .btn {
-        padding: 0.4rem 0.8rem;
-        border-radius: 5px;
-        cursor: pointer;
-        border: none;
-    }
-
-    .btn-sm {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.85rem;
-    }
 
     .btn-primary {
-        background: #2d7ff9;
-        color: white;
+        background-color: #2563eb;
+        border: none;
     }
 
-    .btn-outline-primary {
-        background: transparent;
-        color: #2d7ff9;
-        border: 1px solid #2d7ff9;
-    }
-
-        .btn-outline-primary:hover {
-            background: #2d7ff9;
-            color: white;
+        .btn-primary:hover {
+            background-color: #1d4ed8;
         }
 
-    /* -------------------- Responsive -------------------- */
-    media (max-width: 768px) {
-        .courses-container {
-            flex-direction: column;
-        }
-
-        .courses-sidebar {
-            width: 100%;
-        }
-
-        .courses-grid {
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        }
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.2);
     }
 </style>

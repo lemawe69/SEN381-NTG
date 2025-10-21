@@ -1,40 +1,51 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
-public class LoginModel : PageModel
+namespace CampusLearnNTG.Pages
 {
-    private readonly SignInManager<IdentityUser> _signInManager;
-    private readonly UserManager<IdentityUser> _userManager;
-
-    public LoginModel(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+    public class LoginModel : PageModel
     {
-        _signInManager = signInManager;
-        _userManager = userManager;
-    }
+        [BindProperty]
+        public StudentLoginModel Student { get; set; } = new();
 
-    public async Task<IActionResult> OnPostAsync(string? returnUrl = null)
-    {
-        if (ModelState.IsValid)
+        [BindProperty]
+        public TutorLoginModel Tutor { get; set; } = new();
+
+        public void OnGet() { }
+
+        public IActionResult OnPostStudentLogin()
         {
-            var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, false);
+            if (!ModelState.IsValid)
+                return Page();
 
-            if (result.Succeeded)
-            {
-                var user = await _userManager.FindByEmailAsync(Input.Email);
-                var roles = await _userManager.GetRolesAsync(user);
+            // TODO: Validate credentials with PostgreSQL
+            // If successful:
+            return RedirectToPage("/StudentDashboard");
 
-                if (roles.Contains("Admin"))
-                    return RedirectToPage("/AdminDashboard");
-
-                if (roles.Contains("Tutor"))
-                    return RedirectToPage("/TutorDashboard");
-
-                return RedirectToPage("/StudentDashboard");
-            }
-
-            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            // Else: Add ModelState error
+            // ModelState.AddModelError(string.Empty, "Invalid credentials.");
+            // return Page();
         }
 
-        return Page();
+        public IActionResult OnPostTutorLogin()
+        {
+            if (!ModelState.IsValid)
+                return Page();
+
+            // TODO: Validate credentials with PostgreSQL
+            return RedirectToPage("/TutorDashboard");
+        }
+
+        public class StudentLoginModel
+        {
+            public string Email { get; set; }
+            public string Password { get; set; }
+        }
+
+        public class TutorLoginModel
+        {
+            public string Email { get; set; }
+            public string Password { get; set; }
+        }
     }
 }

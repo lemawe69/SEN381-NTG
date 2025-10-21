@@ -1,17 +1,27 @@
-using CampusLearnNTG.Data;
+﻿using CampusLearnNTG.Data;
 using CampusLearnNTG.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 
 // PostgreSQL DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-// HTTP Client for LM Studio
+
+// ✅ Add cookie authentication
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login";
+        options.AccessDeniedPath = "/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromHours(1);
+    });
+
+// HTTP client (optional)
 builder.Services.AddHttpClient("LmStudio", client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["LMStudio:Endpoint"]);
@@ -30,9 +40,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
+app.UseAuthentication();  // ✅ must come before UseAuthorization
 app.UseAuthorization();
 
 app.MapRazorPages();

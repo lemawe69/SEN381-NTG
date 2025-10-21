@@ -1,509 +1,124 @@
 ﻿@page
 @model CampusLearnNTG.Pages.StudentDashboardModel
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Student Dashboard";
 }
 
-<style>
-    /* Topic section styling */
-    .topic-section { margin-top: 30px; }
-    .topic-card {
-        background: #ffffff;
-        padding: 15px;
-        border-radius: 8px;
-        margin-bottom: 10px;
-        box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
-    }
-    .topic-card h4 { margin: 0; }
-    .topic-card small { color: gray; }
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    /* Modal styling */
-    .modal {
-        display:none;
-        position:fixed;
-        top:0; left:0;
-        width:100%; height:100%;
-        background:rgba(0,0,0,0.5);
-        justify-content:center;
-        align-items:center;
-    }
-    .modal-content {
-        background:white;
-        padding:20px;
-        border-radius:8px;
-        width:350px;
-    }
-</style>
+<div class="container-fluid mt-3">
+    <div class="row">
+       
 
-<div class="dashboard-container">
-    <!-- Sidebar -->
-    <aside class="dashboard-sidebar">
-        <h4>Student Menu</h4>
-        <nav>
-            <ul>
-                <li><a asp-page="/StudentDashboard"><span class="bi bi-house-door"></span> Dashboard Home</a></li>
-                <li><a asp-page="/Profile"><span class="bi bi-person"></span> My Profile</a></li>
-                <li><a asp-page="/Courses"><span class="bi bi-calendar"></span> Course Schedule</a></li>
-                <li><a asp-page="/LearningMaterials"><span class="bi bi-journal-text"></span> Learning Materials</a></li>
-                <li><a asp-page="/Messages"><span class="bi bi-chat-dots"></span> Messaging</a></li>
-                <li><a asp-page="/Forum"><span class="bi bi-people"></span> Public Forum</a></li>
-            </ul>
-        </nav>
-        <div class="sidebar-settings"><a asp-page="/Settings"><span class="bi bi-gear"></span> Settings</a></div>
-        <div class="sidebar-footer">CampusLearn</div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="dashboard-main">
-        <div class="dashboard-topbar">
-            <nav>
-                <a href="/">Home</a>
-                <a href="/signup">Register</a>
-                <a href="#">Courses</a>
-                <a href="#">Messages</a>
-            </nav>
-            <button class="btn-logout">Logout</button>
-            <span class="bi bi-person-circle topbar-avatar"></span>
-        </div>
-
-        <h2>Student Dashboard</h2>
-
-        <!-- TOPIC MANAGEMENT SECTION -->
-        <section class="topic-section">
-            <h3>Topic Management</h3>
-            <button id="btnCreateTopic">+ Create Topic</button>
-
-            <!-- Topic List -->
-            @if (Model.Topics.Any())
-            {
-                foreach (var topic in Model.Topics)
-                {
-                    <div class="topic-card">
-                        <h4>@topic.Title</h4>
-                        <p>@topic.Description</p>
-                        <small>Posted by: @topic.CreatedBy on @topic.CreatedAt</small>
-                    </div>
-                }
-            }
-            else
-            {
-                <p>No topics created yet.</p>
-            }
-            @if (topic.Materials.Any())
-            {
-                    <div>
-                        <strong>Materials (Tutor):</strong>
-                        <ul>
-            @foreach (var m in topic.Materials)
-            {
-                <li><a href="@Url.Content($"~/uploads/topics/{topic.Id}/{m}")" download>@m</a></li>
-            }
-                </ul>
+        <!-- Main Content -->
+        <div class="col-md-9 col-lg-10 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3>Welcome, @Model.Student.FirstName @Model.Student.LastName!</h3>
+                <div>
+                    <button class="btn btn-outline-secondary me-2">Home</button>
+                    <button class="btn btn-outline-secondary me-2">My Profile</button>
+                    <button class="btn btn-outline-secondary me-2">Courses</button>
+                    <button class="btn btn-outline-secondary me-2">Messages</button>
+                    <button class="btn btn-danger">Logout</button>
+                </div>
             </div>
-            }
 
-        </section>
-    </main>
-</div>
+            <div class="row g-4">
+                <!-- Profile Card -->
+                <div class="col-lg-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                                     class="rounded-circle" width="100" height="100" alt="Profile">
+                            </div>
+                            <h5>@Model.Student.FirstName @Model.Student.LastName</h5>
+                            <p class="text-muted mb-1">Student ID: @Model.Student.StudentId</p>
+                            <p class="text-success">Status: @Model.Student.Status</p>
+                            <div class="progress mt-2">
+                                <div class="progress-bar" role="progressbar"
+                                     style="width:@Model.Student.Progress%" aria-valuenow="@Model.Student.Progress"
+                                     aria-valuemin="0" aria-valuemax="100">
+                                    @Model.Student.Progress%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Modal Popup -->
-<div id="topicModal" class="modal">
-    <div class="modal-content">
-        <h3>Create New Topic</h3>
-        <form method="post">
-            <label>Title</label>
-            <input type="text" name="TopicTitle" required />
+                <!-- Upcoming Sessions -->
+                <div class="col-lg-8">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="mb-3">Upcoming Sessions</h5>
+                            @foreach (var session in Model.UpcomingSessions)
+                            {
+                                <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                                    <div>
+                                        <strong>@session.Title</strong><br />
+                                        <small>@session.Instructor - @session.Date.ToString("MMM dd, hh:mm tt")</small>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm">Join Session</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
 
-            <label>Description</label>
-            <textarea name="TopicDescription" required></textarea>
+                <!-- Learning Materials -->
+                <div class="col-lg-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="mb-3">Learning Materials</h5>
+                            @foreach (var material in Model.LearningMaterials)
+                            {
+                                <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                                    <div>
+                                        <strong>@material.Title</strong><br />
+                                        <small>Type: @material.Type</small>
+                                    </div>
+                                    <a href="#" class="btn btn-outline-primary btn-sm">View</a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
 
-            <button type="submit" formaction="?handler=CreateTopic">Create</button>
-            <button type="button" id="closeModal">Cancel</button>
-        </form>
+                <!-- Recent Messages -->
+                <div class="col-lg-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="mb-3">Recent Messages</h5>
+                            @foreach (var msg in Model.RecentMessages)
+                            {
+                                <div class="d-flex align-items-start border-bottom py-2">
+                                    <div class="flex-grow-1 ms-2">
+                                        <strong>@msg.Sender</strong><br />
+                                        <small>@msg.Content</small><br />
+                                        <span class="text-muted small">@msg.TimeAgo</span>
+                                    </div>
+                                </div>
+                            }
+                            <a href="#" class="btn btn-link p-0 mt-2">View All Messages</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forum -->
+                <div class="col-lg-4">
+                    <div class="card shadow-sm h-100 text-center">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <h5 class="mb-3">Community Forum</h5>
+                            <p>Engage in discussions, ask questions, and share knowledge.</p>
+                            <a href="/Forum" class="btn btn-primary">Go to Forum</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<script>
-    document.getElementById("btnCreateTopic").onclick = () => {
-        document.getElementById("topicModal").style.display = "flex";
-    };
-    document.getElementById("closeModal").onclick = () => {
-        document.getElementById("topicModal").style.display = "none";
-    };
-</script>
-
-        <!-- Dashboard Title -->
-        <h2>Student Dashboard:</h2>
-
-        <!-- Dashboard Grid Row 1 -->
-        <div class="dashboard-grid">
-            <!-- Welcome Card -->
-            <section class="dashboard-card welcome-card">
-                <h3>Welcome, Alex Johnson!</h3>
-                <p>Overview of your progress and activities.</p>
-                <div class="profile-overview">
-                    <div class="avatar"><span class="bi bi-person"></span></div>
-                    <div>
-                        <div class="name">Alex Johnson</div>
-                        <div class="id">Student ID: 512346</div>
-                        <div class="status">Status: Active</div>
-                    </div>
-                </div>
-                <div class="progress-text">Overall Progress: 75%</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 75%;"></div>
-                </div>
-            </section>
-
-            <!-- Upcoming Sessions -->
-            <section class="dashboard-card">
-                <h4>Upcoming Sessions</h4>
-                <p>Your next classes and appointments.</p>
-                <div class="session-list">
-                    <div>
-                        <div class="session-title">Advanced Calculus</div>
-                        <div class="session-info">Dr. Emily White - Oct 26, 10:00 AM</div>
-                        <button class="btn-session">Join Session</button>
-                    </div>
-                    <div>
-                        <div class="session-title">Literary Analysis</div>
-                        <div class="session-info">Prof. Ben Carter - Oct 27, 02:00 PM</div>
-                        <button class="btn-session">Join Session</button>
-                    </div>
-                    <div>
-                        <div class="session-title">Quantum Physics I</div>
-                        <div class="session-info">Dr. Lena Khan - Oct 28, 11:00 AM</div>
-                        <button class="btn-session">Join Session</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Learning Materials -->
-            <section class="dashboard-card">
-                <h4>Learning Materials</h4>
-                <p>Access your course resources.</p>
-                <div class="material-list">
-                    <div>
-                        <div class="material-title">Calculus III Notes - Chapter 5</div>
-                        <div class="material-type">PDF</div>
-                        <a href="#" class="material-link">View</a>
-                    </div>
-                    <div>
-                        <div class="material-title">Shakespeare Sonnets Analysis - Handout</div>
-                        <div class="material-type">PDF</div>
-                        <a href="#" class="material-link">View</a>
-                    </div>
-                    <div>
-                        <div class="material-title">Physics Equations - Cheat Sheet</div>
-                        <div class="material-type">PDF</div>
-                        <a href="#" class="material-link">View</a>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Dashboard Grid Row 2 -->
-        <div class="dashboard-grid second-row">
-            <!-- Recent Messages -->
-            <section class="dashboard-card">
-                <h4>Recent Messages</h4>
-                <p>Your latest chats and discussions.</p>
-                <div class="message-list">
-                    <div class="message-item">
-                        <span class="bi bi-person-circle message-avatar"></span>
-                        <div>
-                            <div class="message-sender">Dr. Emily White</div>
-                            <div class="message-text">Reminder for tomorrow's session.</div>
-                            <div class="message-time">2 hours ago</div>
-                        </div>
-                    </div>
-                    <div class="message-item">
-                        <span class="bi bi-people message-avatar"></span>
-                        <div>
-                            <div class="message-sender">Study Group Physics</div>
-                            <div class="message-text">Anyone free to meet for the project?</div>
-                            <div class="message-time">30 mins ago</div>
-                        </div>
-                    </div>
-                    <div class="message-item">
-                        <span class="bi bi-person-circle message-avatar"></span>
-                        <div>
-                            <div class="message-sender">Prof. Ben Carter</div>
-                            <div class="message-text">Your essay draft feedback is ready.</div>
-                            <div class="message-time">1 day ago</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="view-all-link">View All Messages</a>
-            </section>
-
-            <!-- Community Forum -->
-            <section class="dashboard-card forum-card">
-                <h4>Community Forum</h4>
-                <p>Connect with peers and instructors.</p>
-                <div class="forum-placeholder">
-                    <span class="bi bi-chat-dots"></span>
-                    <p>Engage in discussions, ask questions, and share knowledge.</p>
-                    <a href="#" class="btn-forum">Go to Forum</a>
-                </div>
-            </section>
-        </div>
-
-        <!-- Footer -->
-        <footer class="dashboard-footer">
-            <div>Quick Links &nbsp; | &nbsp; Support &nbsp; | &nbsp; Company</div>
-            <div>
-                <span class="bi bi-facebook"></span>
-                <span class="bi bi-twitter"></span>
-                <span class="bi bi-instagram"></span>
-                <span class="bi bi-linkedin"></span>
-            </div>
-        </footer>
-    </main>
-</div>
-
-<style>
-/* -------------------- Student Dashboard -------------------- */
-.dashboard-container {
-    display: flex;
-    min-height: 100vh;
-    background: #fafbfc;
-}
-
-/* Sidebar */
-.dashboard-sidebar {
-    width: 220px;
-    background: #fff;
-    border-right: 1px solid #e5e7eb;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-.dashboard-sidebar h4 {
-    margin-bottom: 2rem;
-    color: #2d7ff9;
-}
-.dashboard-sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.dashboard-sidebar li {
-    margin-bottom: 1.2rem;
-}
-.sidebar-settings {
-    margin-top: 2rem;
-    color: #888;
-}
-.sidebar-footer {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    color: #b0b0b0;
-    font-size: 0.95rem;
-}
-
-/* Main */
-.dashboard-main {
-    flex: 1;
-    padding: 2rem;
-}
-.dashboard-topbar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-.dashboard-topbar nav a {
-    margin-right: 2rem;
-    text-decoration: none;
-    color: #2d7ff9;
-    font-weight: 500;
-}
-.btn-logout {
-    margin-right: 1rem;
-    border: 1px solid #dc3545;
-    background: transparent;
-    color: #dc3545;
-    padding: 0.3rem 0.8rem;
-    border-radius: 6px;
-    cursor: pointer;
-}
-.topbar-avatar {
-    font-size: 1.7rem;
-    color: #2d7ff9;
-}
-
-/* Titles */
-.dashboard-main h2 {
-    color: #2d7ff9;
-    margin-bottom: 2rem;
-}
-
-/* Dashboard Grid */
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-.second-row {
-    margin-top: 2rem;
-}
-.dashboard-card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    padding: 2rem;
-}
-
-/* Welcome Card */
-.welcome-card .profile-overview {
-    display: flex;
-    align-items: center;
-    margin: 1.5rem 0;
-}
-.avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: #eaf0fe;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: #2d7ff9;
-    margin-right: 1.5rem;
-}
-.name {
-    font-weight: bold;
-}
-.id, .status {
-    font-size: 0.95rem;
-    color: #888;
-}
-.progress-text {
-    font-size: 0.95rem;
-    color: #888;
-    margin-bottom: 0.5rem;
-}
-.progress-bar {
-    background: #eaf0fe;
-    border-radius: 6px;
-    height: 8px;
-    width: 100%;
-}
-.progress-fill {
-    background: #2d7ff9;
-    height: 8px;
-    border-radius: 6px;
-}
-
-/* Sessions */
-.session-list div {
-    margin-bottom: 1.2rem;
-}
-.session-title {
-    font-weight: bold;
-}
-.session-info {
-    font-size: 0.95rem;
-    color: #888;
-    margin-bottom: 0.5rem;
-}
-.btn-session {
-    padding: 0.3rem 0.7rem;
-    font-size: 0.85rem;
-    border-radius: 6px;
-    border: none;
-    background: #2d7ff9;
-    color: #fff;
-    cursor: pointer;
-}
-
-/* Materials */
-.material-list div {
-    margin-bottom: 1.2rem;
-}
-.material-title {
-    font-weight: bold;
-}
-.material-type {
-    font-size: 0.95rem;
-    color: #888;
-}
-.material-link {
-    font-size: 0.85rem;
-    color: #2d7ff9;
-    text-decoration: none;
-}
-.material-link:hover {
-    text-decoration: underline;
-}
-
-/* Messages */
-.message-list .message-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.2rem;
-}
-.message-avatar {
-    font-size: 1.5rem;
-    color: #2d7ff9;
-    margin-right: 0.7rem;
-}
-.message-sender {
-    font-weight: bold;
-}
-.message-text {
-    font-size: 0.95rem;
-    color: #888;
-}
-.message-time {
-    font-size: 0.85rem;
-    color: #b0b0b0;
-}
-.view-all-link {
-    display: block;
-    margin-top: 1rem;
-    color: #2d7ff9;
-    font-size: 0.95rem;
-}
-
-/* Forum Card */
-.forum-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-.forum-placeholder span {
-    font-size: 2.5rem;
-    color: #2d7ff9;
-    margin-bottom: 1rem;
-}
-.forum-placeholder p {
-    font-size: 0.98rem;
-    color: #888;
-}
-.btn-forum {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    border: none;
-    background: #2d7ff9;
-    color: #fff;
-    cursor: pointer;
-}
-
-/* Footer */
-.dashboard-footer {
-    margin-top: 3rem;
-    text-align: center;
-    color: #888;
-    font-size: 0.95rem;
-}
-.dashboard-footer span {
-    margin-right: 0.5rem;
-}
-</style>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

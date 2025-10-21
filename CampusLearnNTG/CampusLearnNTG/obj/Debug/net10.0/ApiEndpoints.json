@@ -16,6 +16,59 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CampusLearnNTG.Controllers.MessageController",
+    "Method": "GetConversation",
+    "RelativePath": "api/Message/{userId}/{contactId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "contactId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CampusLearnNTG.Controllers.MessageController",
+    "Method": "GetContacts",
+    "RelativePath": "api/Message/contacts/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CampusLearnNTG.Controllers.MessageController",
+    "Method": "Send",
+    "RelativePath": "api/Message/send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "CampusLearnNTG.Models.Messages",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CampusLearnNTG.Controllers.UsersController",
     "Method": "GetUsers",
     "RelativePath": "api/Users",

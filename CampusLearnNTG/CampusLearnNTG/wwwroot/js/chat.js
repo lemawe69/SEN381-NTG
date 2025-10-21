@@ -1,36 +1,30 @@
-﻿const input = document.getElementById("userInput");
-const chatWindow = document.getElementById("chatWindow");
-const sendBtn = document.getElementById("sendBtn");
+﻿document.addEventListener("DOMContentLoaded", () => {
+    const sendBtn = document.getElementById("sendBtn");
+    const input = document.getElementById("userInput");
+    const chatWindow = document.getElementById("chatWindow");
 
-function appendMessage(sender, text) {
-    const msg = document.createElement("div");
-    msg.innerHTML = `<b>${sender}:</b> ${text}`;
-    chatWindow.appendChild(msg);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-}
-
-async function sendMessage() {
-    const message = input.value.trim();
-    if (!message) return;
-
-    appendMessage("You", message);
-    input.value = "";
-
-    try {
-        const response = await fetch("/api/chat/send", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message })
-        });
-
-        const data = await response.json();
-        appendMessage("Bot", data.reply);
-    } catch (err) {
-        appendMessage("Bot", "⚠️ Error: Unable to connect to server.");
+    function appendMessage(content, sender) {
+        const msg = document.createElement("div");
+        msg.classList.add("message", sender === "user" ? "user-message" : "bot-message");
+        msg.textContent = content;
+        chatWindow.appendChild(msg);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
     }
-}
 
-sendBtn.addEventListener("click", sendMessage);
-input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") sendMessage();
+    function handleSend() {
+        const text = input.value.trim();
+        if (text === "") return;
+
+        appendMessage(text, "user");
+        input.value = "";
+
+        setTimeout(() => {
+            appendMessage("🤖 LM Studio: That’s an interesting point! Let me think about it...", "bot");
+        }, 600);
+    }
+
+    sendBtn.addEventListener("click", handleSend);
+    input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") handleSend();
+    });
 });

@@ -1,284 +1,146 @@
-﻿@page "/forum"
+﻿@page
 @model CampusLearnNTG.Pages.ForumModel
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Public Forum";
 }
-<!--
-Restfull API Endpoints Examples use this as a gide:
-| HTTP Method | Endpoint        | Action                       |
-| ----------- | --------------- | ---------------------------- |
-| GET         | /api/users      | Retrieve a list of all users |
-| GET         | /api/users/{id} | Retrieve a single user       |
-| POST        | /api/users      | Create a new user            |
-| PUT/PATCH   | /api/users/{id} | Update an existing user      |
-| DELETE      | /api/users/{id} | Delete a user                |
 
-E.g. https://localhost:5432/api/users
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
-Verify with Kian Controller Details.
--->
-<div class="forum-container">
-    <!-- Sidebar -->
-    <aside class="forum-sidebar">
-        <h4>Menu</h4>
-        <nav>
-            <ul>
-                <li> <span class="bi bi-house-door"></span> Homepage </li>
-                <li> <span class="bi bi-calendar"></span> Course Schedule </li>
-                <li> <span class="bi bi-journal-text"></span> Learning Materials </li>
-                <li> <span class="bi bi-chat-dots"></span> Private Messaging </li>
-                <li class="active"> <span class="bi bi-people"></span> Public Forum </li>
-                <li> <span class="bi bi-person"></span> Profile </li>
-                <li> <span class="bi bi-gear"></span> Settings </li>
+<div class="container-fluid py-4">
+    <div class="row">
+       
+
+        <!-- Forum Main Content -->
+        <div class="col-md-7 px-4">
+            <h3 class="fw-bold text-primary mb-4">Public Forum:</h3>
+
+            <!-- Search and New Topic -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="input-group w-75">
+                    <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control border-start-0" placeholder="Search CampusLearn..." />
+                </div>
+                <button class="btn btn-primary rounded-pill">
+                    <i class="bi bi-plus-lg"></i> New Topic
+                </button>
+            </div>
+
+            <!-- Tabs -->
+            <ul class="nav nav-pills mb-3">
+                <li class="nav-item"><a class="nav-link active" href="#">All Threads</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">My Threads</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Popular</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Unanswered</a></li>
             </ul>
-        </nav>
-        <div class="sidebar-footer">
-            <div><span class="bi bi-question-circle"></span> Help & Support</div>
-            <div><span class="bi bi-person-gear"></span> Account Settings</div>
-        </div>
-    </aside>
 
-    <!-- Main Content -->
-    <main class="forum-main">
-        <h2>Public Forum:</h2>
-        <div class="forum-body">
-            <!-- Threads Section -->
-            <section class="forum-threads">
-                <div class="search-newtopic">
-                    <input type="text" placeholder="Search CampusLearn..." />
-                    <button class="btn btn-primary">+ New Topic</button>
-                </div>
-                <div class="thread-tabs">
-                    <button class="btn btn-outline-primary btn-sm">All Threads</button>
-                    <button class="btn btn-outline-secondary btn-sm">My Threads</button>
-                    <button class="btn btn-outline-secondary btn-sm">Popular</button>
-                    <button class="btn btn-outline-secondary btn-sm">Unanswered</button>
-                    <button class="btn btn-outline-secondary btn-sm">Sort by Latest Activity</button>
-                </div>
-
-                <!-- Example Threads -->
-                @for (int i = 0; i < 6; i++)
-                {
-                    <div class="forum-thread-card">
-                        <div class="thread-header">
-                            <span class="bi bi-person-circle thread-avatar"></span>
-                            <span class="thread-author">User Name</span>
-                            @if (i == 0)
+            <!-- Thread Cards -->
+            @foreach (var post in Model.Threads)
+            {
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width:35px;height:35px;">
+                                    @post.AuthorInitial
+                                </div>
+                                <div>
+                                    <strong>@post.Author</strong>
+                                    <small class="text-muted d-block">@post.TimeAgo</small>
+                                </div>
+                            </div>
+                            @if (post.Pinned)
                             {
-                                <span class="badge bg-primary">Pinned</span>
+                                <span class="badge bg-secondary">Pinned</span>
                             }
                         </div>
-                        <div class="thread-title">Sample Thread Title #{i+1}</div>
-                        <div class="thread-content">
-                            This is an example post content. Users can discuss topics here in the public forum.
-                        </div>
-                        <div class="thread-stats">
-                            <span><span class="bi bi-chat-dots"></span> 10 Replies</span>
-                            <span><span class="bi bi-eye"></span> 100 Views</span>
-                            <span><span class="bi bi-clock"></span> 1 hour ago</span>
+                        <h5 class="fw-semibold">@post.Title</h5>
+                        <p class="text-muted small mb-3">@post.Content</p>
+                        <div class="d-flex justify-content-between text-muted small">
+                            <div>
+                                <i class="bi bi-chat-left-text"></i> @post.Replies Replies
+                                <i class="bi bi-eye ms-3"></i> @post.Views Views
+                            </div>
+                            <span>@post.LastActive</span>
                         </div>
                     </div>
-                }
-            </section>
-
-            <!-- Right Sidebar -->
-            <aside class="forum-right-sidebar">
-                <div class="sidebar-card">
-                    <h5>Trending Topics</h5>
-                    <ul>
-                        <li>AI Ethics in Research</li>
-                        <li>Quantum Computing Basics</li>
-                        <li>Career Fair Preparation</li>
-                        <li>Mental Health Awareness</li>
-                        <li>Sustainable Engineering Solutions</li>
-                    </ul>
                 </div>
-                <div class="sidebar-card">
-                    <h5>My Active Threads</h5>
-                    <ul>
-                        <li>Project Management Software</li>
-                        <li>Literature Review Strategies</li>
-                        <li>Internship Opportunities</li>
-                    </ul>
-                </div>
-                <div class="sidebar-card">
-                    <h5>Quick Post</h5>
-                    <textarea placeholder="What's on your mind, CampusLearner?"></textarea>
-                    <button class="btn btn-primary">Post</button>
-                </div>
-            </aside>
+            }
         </div>
-    </main>
+
+        <!-- Right Sidebar -->
+        <div class="col-md-3">
+            <div class="sticky-top" style="top: 1rem;">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h6 class="fw-bold mb-3">Trending Topics</h6>
+                        <ul class="list-unstyled small">
+                            @foreach (var topic in Model.TrendingTopics)
+                            {
+                                <li class="mb-2"><a href="#" class="text-decoration-none">@topic</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h6 class="fw-bold mb-3">My Active Threads</h6>
+                        <ul class="list-unstyled small">
+                            @foreach (var thread in Model.MyThreads)
+                            {
+                                <li class="mb-2"><a href="#" class="text-decoration-none">@thread</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h6 class="fw-bold mb-3">Quick Post</h6>
+                        <textarea class="form-control mb-2" placeholder="What's on your mind, CampusLearner?" rows="3"></textarea>
+                        <button class="btn btn-primary w-100 rounded-pill">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <style>
-    /* -------------------- Forum Page -------------------- */
-    .forum-container {
-        display: flex;
-        min-height: 100vh;
-        background: #fafbfc;
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
     }
 
-    .forum-sidebar {
-        width: 220px;
-        background: #fff;
-        border-right: 1px solid #e5e7eb;
-        padding: 2rem 1rem;
+    .nav-link.active {
+        background-color: #2563eb !important;
+        color: #fff !important;
+        border-radius: 20px;
+        padding: 6px 15px;
     }
 
-        .forum-sidebar h4 {
-            margin-bottom: 2rem;
-            color: #2d7ff9;
+    .avatar {
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .card {
+        border-radius: 12px;
+    }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+            transition: 0.2s ease;
         }
 
-        .forum-sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+    .btn-primary {
+        background-color: #2563eb;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
         }
-
-        .forum-sidebar li {
-            margin-bottom: 1.2rem;
-        }
-
-            .forum-sidebar li.active {
-                font-weight: bold;
-                color: #2d7ff9;
-            }
-
-    .sidebar-footer {
-        margin-top: 2rem;
-        color: #888;
-    }
-
-        .sidebar-footer div {
-            margin-top: 0.5rem;
-        }
-
-    .forum-main {
-        flex: 1;
-        padding: 2rem;
-    }
-
-        .forum-main h2 {
-            color: #2d7ff9;
-            margin-bottom: 1.5rem;
-        }
-
-    .forum-body {
-        display: flex;
-        gap: 2rem;
-    }
-
-    .forum-threads {
-        flex: 3;
-    }
-
-    .search-newtopic {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.5rem;
-    }
-
-        .search-newtopic input {
-            flex: 1;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            border: 1px solid #e5e7eb;
-            margin-right: 1rem;
-        }
-
-    .thread-tabs {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.5rem;
-    }
-
-        .thread-tabs button {
-            margin-right: 1rem;
-        }
-
-    .forum-thread-card {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        padding: 1.5rem;
-        margin-bottom: 1.2rem;
-    }
-
-    .thread-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0.5rem;
-    }
-
-    .thread-avatar {
-        font-size: 1.5rem;
-        color: #2d7ff9;
-        margin-right: 0.7rem;
-    }
-
-    .thread-title {
-        font-size: 1.1rem;
-        font-weight: bold;
-        margin-bottom: 0.3rem;
-    }
-
-    .thread-content {
-        color: #888;
-        font-size: 0.98rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .thread-stats {
-        display: flex;
-        gap: 1.5rem;
-        color: #b0b0b0;
-        font-size: 0.95rem;
-    }
-
-    .forum-right-sidebar {
-        flex: 1;
-        margin-left: 2rem;
-    }
-
-    .sidebar-card {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-    }
-
-        .sidebar-card h5 {
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .sidebar-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            color: #2d7ff9;
-        }
-
-            .sidebar-card ul li {
-                margin-bottom: 0.7rem;
-            }
-
-        .sidebar-card textarea {
-            width: 100%;
-            height: 60px;
-            border-radius: 6px;
-            border: 1px solid #e5e7eb;
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-        }
-
-    /* -------------------- Responsive -------------------- */
-    media (max-width: 1024px) {
-        .forum-body {
-            flex-direction: column;
-        }
-    }
 </style>

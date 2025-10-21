@@ -1,191 +1,150 @@
-﻿@page "/signup"
+﻿@page
 @model CampusLearnNTG.Pages.SignupModel
 @{
-    ViewData["Title"] = "Signup";
+    ViewData["Title"] = "Create Your Account";
 }
-<!--
-Restfull API Endpoints Examples use this as a gide:
-| HTTP Method | Endpoint        | Action                       |
-| ----------- | --------------- | ---------------------------- |
-| GET         | /api/users      | Retrieve a list of all users |
-| GET         | /api/users/{id} | Retrieve a single user       |
-| POST        | /api/users      | Create a new user            |
-| PUT/PATCH   | /api/users/{id} | Update an existing user      |
-| DELETE      | /api/users/{id} | Delete a user                |
 
-E.g. https://localhost:5432/api/users
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-Verify with Kian Controller Details.
--->
-<div class="signup-container">
-    <div class="welcome-section">
-        <h1>Welcome to CampusLearn</h1>
-        <p>We're glad to have you here! Join CampusLearn as a student or a tutor to start your learning journey.</p>
-    </div>
-
-    <div class="signup-card-wrapper">
-        <div class="signup-card">
-            <h3>Create Your Account</h3>
-            <p class="subtitle">
-                Join CampusLearn as a student or a tutor to start your learning journey.
+<div class="signup-container d-flex align-items-center justify-content-center">
+    <div class="card signup-card shadow-sm">
+        <div class="card-body p-5">
+            <h4 class="fw-bold text-center mb-2">Create Your Account</h4>
+            <p class="text-center text-muted small mb-4">
+                Join <strong>CampusLearn</strong> as a student or a tutor to start your learning journey.
             </p>
 
-            <div class="signup-tabs">
-                <button class="tab active" id="studentTab">Student Sign-Up</button>
-                <button class="tab" id="tutorTab">Tutor Sign-Up</button>
+            <!-- Toggle -->
+            <div class="d-flex justify-content-center mb-4">
+                <div class="btn-group" role="group">
+                    <button id="studentBtn" class="btn btn-primary active" onclick="switchForm('student')">Student Sign-Up</button>
+                    <button id="tutorBtn" class="btn btn-outline-primary" onclick="switchForm('tutor')">Tutor Sign-Up</button>
+                </div>
             </div>
 
-            <form>
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="John Doe" />
+            <!-- Student Form -->
+            <form id="studentForm" method="post" asp-page-handler="StudentSignup">
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input asp-for="Student.FullName" class="form-control" placeholder="John Doe" required />
                 </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" placeholder="john.doe@example.com" />
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input asp-for="Student.Email" class="form-control" placeholder="john.doe@example.com" type="email" required />
                 </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" placeholder="Enter your password" />
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input asp-for="Student.Password" class="form-control" placeholder="Enter your password" type="password" required />
                 </div>
-                <div class="form-group">
-                    <label>Confirm Password</label>
-                    <input type="password" placeholder="Confirm your password" />
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input asp-for="Student.ConfirmPassword" class="form-control" placeholder="Confirm your password" type="password" required />
                 </div>
-                <div class="form-group">
-                    <label>Student ID (Optional)</label>
-                    <input type="text" placeholder="E.g. CL12345" />
+                <div class="mb-4">
+                    <label class="form-label">Student ID (Optional)</label>
+                    <input asp-for="Student.StudentId" class="form-control" placeholder="E.g. CL12345" />
                 </div>
-                <button type="submit" class="btn-submit">Sign Up as Student</button>
+                <button type="submit" class="btn btn-primary w-100">Sign Up as Student</button>
             </form>
 
-            <div class="login-link">
-                Already have an account? <a href="/login">Login</a>
-            </div>
+            <!-- Tutor Form -->
+            <form id="tutorForm" method="post" asp-page-handler="TutorSignup" style="display:none;">
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input asp-for="Tutor.FullName" class="form-control" placeholder="Jane Smith" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input asp-for="Tutor.Email" class="form-control" placeholder="jane.smith@example.com" type="email" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input asp-for="Tutor.Password" class="form-control" placeholder="Enter your password" type="password" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input asp-for="Tutor.ConfirmPassword" class="form-control" placeholder="Confirm your password" type="password" required />
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Expertise Area</label>
+                    <input asp-for="Tutor.Expertise" class="form-control" placeholder="E.g. Mathematics, Chemistry" required />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Sign Up as Tutor</button>
+            </form>
+
+            <p class="text-center small mt-4 mb-0">
+                Already have an account?
+                <a href="/Login" class="text-decoration-none">Login</a>
+            </p>
         </div>
     </div>
 </div>
 
+<script>
+    function switchForm(type) {
+        const studentBtn = document.getElementById('studentBtn');
+        const tutorBtn = document.getElementById('tutorBtn');
+        const studentForm = document.getElementById('studentForm');
+        const tutorForm = document.getElementById('tutorForm');
+
+        if (type === 'student') {
+            studentBtn.classList.add('btn-primary');
+            studentBtn.classList.remove('btn-outline-primary', 'active');
+            tutorBtn.classList.remove('btn-primary');
+            tutorBtn.classList.add('btn-outline-primary');
+
+            studentForm.style.display = 'block';
+            tutorForm.style.display = 'none';
+        } else {
+            tutorBtn.classList.add('btn-primary');
+            tutorBtn.classList.remove('btn-outline-primary', 'active');
+            studentBtn.classList.remove('btn-primary');
+            studentBtn.classList.add('btn-outline-primary');
+
+            tutorForm.style.display = 'block';
+            studentForm.style.display = 'none';
+        }
+    }
+</script>
+
 <style>
-    /* -------------------- Signup Page -------------------- */
+    body {
+        min-height: 100vh;
+    }
+
     .signup-container {
         min-height: 100vh;
-        background: #f5f6fa;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-    }
-
-    .welcome-section {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-        .welcome-section h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .welcome-section p {
-            font-size: 1rem;
-            color: #555;
-        }
-
-    .signup-card-wrapper {
-        display: flex;
-        justify-content: center;
-        width: 100%;
     }
 
     .signup-card {
+        width: 420px;
+        border-radius: 12px;
         background: #fff;
-        padding: 2rem;
-        border-radius: 16px;
-        width: 400px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
-        .signup-card h3 {
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .signup-card .subtitle {
-            text-align: center;
-            font-size: 0.95rem;
-            color: #888;
-            margin-bottom: 1.5rem;
-        }
-
-    .signup-tabs {
-        display: flex;
-        margin-bottom: 1.5rem;
-        gap: 0.5rem;
+    .btn-group .btn {
+        width: 160px;
+        font-weight: 500;
     }
 
-        .signup-tabs .tab {
-            flex: 1;
-            padding: 0.5rem;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            background: #f5f6fa;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-            .signup-tabs .tab.active {
-                background: #2d7ff9;
-                color: #fff;
-                border-color: #2d7ff9;
-            }
-
-    form .form-group {
-        margin-bottom: 1rem;
-        display: flex;
-        flex-direction: column;
+    .form-label {
+        font-size: 0.875rem;
+        font-weight: 500;
     }
 
-        form .form-group label {
-            margin-bottom: 0.3rem;
-            font-weight: 500;
-        }
+    .form-control {
+        border-radius: 8px;
+        padding: 0.6rem 0.75rem;
+    }
 
-        form .form-group input {
-            padding: 0.5rem 0.75rem;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 0.95rem;
-        }
-
-    .btn-submit {
-        width: 100%;
-        background: #2d7ff9;
-        color: #fff;
-        padding: 0.6rem;
+    .btn-primary {
+        background-color: #2563eb;
         border: none;
         border-radius: 8px;
-        cursor: pointer;
-        margin-top: 1rem;
-        font-size: 1rem;
+        font-weight: 500;
     }
 
-        .btn-submit:hover {
-            background: #2565d6;
+        .btn-primary:hover {
+            background-color: #1d4ed8;
         }
-
-    .login-link {
-        text-align: center;
-        font-size: 0.95rem;
-        margin-top: 1rem;
-    }
-
-        .login-link a {
-            color: #2d7ff9;
-            text-decoration: none;
-        }
-
-            .login-link a:hover {
-                text-decoration: underline;
-            }
 </style>
